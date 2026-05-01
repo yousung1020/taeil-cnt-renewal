@@ -1,0 +1,26 @@
+{
+  "business": [
+    {
+      "id": 1,
+      "title": "철근공사",
+      "subtitle": "REBAR WORKS",
+      "description": "업계 최고 수준의 철근 자동화 가공 시스템을 보유하여 정밀한 시공과 공기 단축을 실현합니다.",
+      "icon": "rebar",
+      "details": ["자동화 가공 공장 운영", "BIM 기반 정밀 배근", "현장 맞춤형 조립 공법"]
+    },
+    {
+      "id": 2,
+      "title": "콘크리트공사",
+      "subtitle": "CONCRETE WORKS",
+      "description": "최적의 배합 설계와 첨단 타설 장비를 활용하여 구조물의 내구성과 품질을 극대화합니다.",
+      "icon": "concrete",
+      "details": ["고유동/고강도 콘크리트 타설", "균열 방지 양생 시스템", "정밀 수평 관리 공법"]
+    }
+  ],
+  "performance": [
+    { "id": 1, "category": "아파트", "name": "인천 검단지구 AAXX블록", "client": "OO건설", "period": "2023-2025" },
+    { "id": 2, "category": "오피스", "name": "서울 마곡지구 업무시설", "client": "XX산업", "period": "2022-2024" },
+    { "id": 3, "category": "주상복합", "name": "부산 해운대 XX 더샵", "client": "포스코이앤씨", "period": "2021-2024" },
+    { "id": 4, "category": "공공시설", "name": "정부세종청사 X단계", "client": "행정안전부", "period": "2020-2023" }
+  ]
+}

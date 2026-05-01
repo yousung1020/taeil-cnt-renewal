@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #10b981;
+  --color-brand-yellow: #facc15;
+  --color-matte-black: #0a0a0a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
+  font-size: 18px; /* 심사위원을 위한 시원한 크기 */
+  line-height: 1.7;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 포스코 스타일의 웅장한 텍스트 효과 */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+/* 글래스모피즘 네비바 */
+.nav-glass {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 가독성 높은 섹션 제목 */
+.section-label {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--color-brand-green);
+  letter-spacing: 0.3em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
