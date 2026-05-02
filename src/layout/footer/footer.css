@@ -1,0 +1,241 @@
+.site-footer {
+  position: relative;
+  min-height: 96px;
+  scroll-snap-align: end;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(135deg, #16231f 0%, #0f3f28 58%, #0a241b 100%);
+  background-size:
+    56px 56px,
+    56px 56px,
+    auto;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.site-footer::before {
+  position: absolute;
+  right: -90px;
+  bottom: -120px;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.site-footer__inner {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(1180px, calc(100% - 48px));
+  min-height: 96px;
+  margin: 0 auto;
+  padding: 14px 0 12px;
+}
+
+.site-footer__top {
+  display: block;
+  padding-right: 260px;
+  padding-left: 0;
+}
+
+.site-footer__bottom {
+  position: static;
+}
+
+.site-footer__address {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.42;
+}
+
+.site-footer__address span {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.site-footer__menu ul,
+.site-footer__family ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__menu ul {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: #6de28f;
+}
+
+.site-footer__menu a {
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.site-footer__menu {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
+
+.site-footer__family {
+  position: absolute;
+  top: 62%;
+  right: 0;
+  width: 206px;
+  transform: translateY(-50%);
+}
+
+.site-footer__family summary {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+  list-style: none;
+}
+
+.site-footer__family summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-footer__family summary::after {
+  color: #6de28f;
+  content: "+";
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.site-footer__family[open] summary::after {
+  content: "-";
+}
+
+.site-footer__family ul {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(100% + 8px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(9, 26, 20, 0.94);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+}
+
+.site-footer__family a {
+  display: block;
+  padding: 12px 16px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.site-footer__family li + li a {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer__brand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transform: translate(-50%, -50%);
+}
+
+.site-footer__brand img {
+  display: block;
+  width: 52px;
+  height: auto;
+}
+
+.site-footer__brand span {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+@media (max-width: 768px) {
+  .site-footer {
+    min-height: auto;
+  }
+
+  .site-footer__inner {
+    width: min(100% - 32px, 560px);
+    min-height: auto;
+    padding: 24px 0 22px;
+  }
+
+  .site-footer__top {
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .site-footer__bottom {
+    margin-top: 18px;
+  }
+
+  .site-footer__address {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .site-footer__menu ul {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+
+  .site-footer__family {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(100%, 260px);
+    transform: none;
+  }
+
+  .site-footer__menu {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .site-footer__family ul {
+    position: static;
+    margin-top: 8px;
+  }
+
+  .site-footer__brand {
+    position: static;
+    margin-top: 18px;
+    transform: none;
+  }
+}

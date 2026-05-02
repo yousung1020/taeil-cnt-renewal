@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import Footer from "./layout/footer/footer";
 import Header from "./layout/header/header";
 import homeVideo from "./assets/bodyVideo.mp4";
 import "./App.css";
@@ -207,6 +208,8 @@ function App() {
             </div>
           </section>
         </section>
+
+        <Footer />
       </main>
     </>
   );
