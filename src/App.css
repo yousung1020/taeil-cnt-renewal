@@ -77,7 +77,23 @@ body {
 }
 
 .snap-section--third {
-  background: #e8f0ea;
+  isolation: isolate;
+  justify-items: stretch;
+  background:
+    linear-gradient(90deg, rgba(30, 43, 38, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(30, 43, 38, 0.05) 1px, transparent 1px),
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(143, 74, 53, 0.16),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #f7f8f4 0%, #e6ece6 54%, #d3ddd5 100%);
+  background-size:
+    64px 64px,
+    64px 64px,
+    auto,
+    auto;
+  color: #172620;
 }
 
 .company-structure {
@@ -391,6 +407,450 @@ body {
   }
 }
 
+.concrete-pour {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.concrete-pour::before {
+  position: absolute;
+  right: clamp(-64px, -3vw, -24px);
+  bottom: clamp(34px, 7vh, 76px);
+  width: min(72vw, 980px);
+  height: clamp(190px, 25vh, 290px);
+  background:
+    repeating-linear-gradient(
+      -18deg,
+      rgba(255, 255, 255, 0.18) 0 2px,
+      transparent 2px 22px
+    ),
+    #b7beb8;
+  box-shadow:
+    inset 0 20px 36px rgba(58, 66, 62, 0.13),
+    0 32px 54px rgba(34, 47, 41, 0.12);
+  clip-path: polygon(10% 0, 100% 0, 92% 100%, 0 100%);
+  content: "";
+}
+
+.concrete-pour__truck {
+  position: absolute;
+  top: 300px;
+  right: clamp(26px, 6vw, 96px);
+  width: clamp(240px, 28vw, 390px);
+  height: clamp(108px, 13vw, 164px);
+  opacity: 0;
+  transform: translateX(80px);
+}
+
+.concrete-pour__truck::before {
+  position: absolute;
+  right: 24%;
+  bottom: 18%;
+  width: 66%;
+  height: 48%;
+  border-radius: 12px 18px 10px 10px;
+  background: linear-gradient(135deg, #eef1ec, #bfc8c1);
+  box-shadow: inset 0 -12px 18px rgba(37, 48, 43, 0.14);
+  content: "";
+}
+
+.concrete-pour__drum {
+  position: absolute;
+  left: 14%;
+  bottom: 26%;
+  width: 42%;
+  aspect-ratio: 1.28;
+  border: 8px solid #5f6964;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    135deg,
+    #d9ded9 0 14px,
+    #aeb8b0 14px 25px
+  );
+  box-shadow: inset -10px -8px 18px rgba(43, 50, 47, 0.18);
+}
+
+.concrete-pour__cab {
+  position: absolute;
+  right: 2%;
+  bottom: 23%;
+  width: 28%;
+  height: 58%;
+  border-radius: 16px 8px 10px 10px;
+  background: linear-gradient(135deg, #f5f6f1 0 48%, #89968f 49% 100%);
+}
+
+.concrete-pour__wheel {
+  position: absolute;
+  bottom: 2%;
+  width: 17%;
+  aspect-ratio: 1;
+  border: 7px solid #26312c;
+  border-radius: 50%;
+  background: #6f7b74;
+}
+
+.concrete-pour__wheel--front {
+  right: 7%;
+}
+
+.concrete-pour__wheel--rear {
+  left: 22%;
+}
+
+.concrete-pour__chute {
+  position: absolute;
+  top: clamp(300px, 300vh, 350px);
+  right: clamp(142px, 19vw, 292px);
+  width: clamp(250px, 30vw, 470px);
+  height: 18px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #65716b, #a8b0aa);
+  box-shadow: 0 10px 18px rgba(29, 39, 35, 0.14);
+  opacity: 0;
+  transform: rotate(18deg) translateX(36px);
+  transform-origin: right center;
+}
+
+.concrete-pour__stream {
+  position: absolute;
+  top: clamp(250px, 34vh, 348px);
+  right: clamp(372px, 47vw, 720px);
+  width: clamp(38px, 4.8vw, 68px);
+  height: clamp(260px, 37vh, 410px);
+  overflow: hidden;
+  border-radius: 999px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top center;
+}
+
+.concrete-pour__stream::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.22) 0 10px,
+      transparent 10px 26px
+    ),
+    linear-gradient(90deg, #848f88, #c7cec7 44%, #737f78);
+  animation: concrete-flow 0.72s linear infinite;
+  content: "";
+}
+
+.concrete-pour__form {
+  position: absolute;
+  right: clamp(74px, 11vw, 190px);
+  bottom: clamp(44px, 8vh, 84px);
+  width: min(62vw, 880px);
+  height: clamp(112px, 15vh, 164px);
+  overflow: hidden;
+  border: 10px solid rgba(72, 83, 77, 0.82);
+  border-top-width: 7px;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.concrete-pour__fill {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -12deg,
+      rgba(255, 255, 255, 0.18) 0 2px,
+      transparent 2px 21px
+    ),
+    linear-gradient(180deg, #c5cbc5, #8e9992);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.concrete-pour__grain {
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  opacity: 0;
+}
+
+.concrete-pour__grain--one {
+  left: 17%;
+  top: 8%;
+}
+
+.concrete-pour__grain--two {
+  left: 48%;
+  top: 38%;
+  width: 54px;
+  height: 54px;
+}
+
+.concrete-pour__grain--three {
+  right: 13%;
+  top: 18%;
+  width: 62px;
+  height: 62px;
+}
+
+.snap-section--third.is-active .concrete-pour__truck {
+  animation: truck-arrive 0.72s ease forwards;
+}
+
+.snap-section--third.is-active .concrete-pour__chute {
+  animation: chute-set 0.58s ease 0.34s forwards;
+}
+
+.snap-section--third.is-active .concrete-pour__stream {
+  animation: stream-drop 0.42s ease 0.78s forwards;
+}
+
+.snap-section--third.is-active .concrete-pour__fill {
+  animation: form-fill 1.75s cubic-bezier(0.24, 0.72, 0.28, 1) 1.02s forwards;
+}
+
+.snap-section--third.is-active .concrete-pour__grain {
+  animation: grain-show 0.58s ease 1.7s forwards;
+}
+
+.ideology {
+  position: relative;
+  z-index: 1;
+  width: min(380px, calc(100% - 48px));
+  margin: 0 auto 0 clamp(32px, 7vw, 118px);
+  padding-top: clamp(54px, 8vh, 86px);
+}
+
+.ideology__header,
+.ideology__vision,
+.ideology__block,
+.ideology-slogan {
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.ideology__eyebrow {
+  margin: 0 0 16px;
+  color: #8f4a35;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ideology h1 {
+  color: #14231e;
+  font-size: clamp(42px, 6.2vw, 78px);
+  line-height: 0.98;
+}
+
+.ideology__vision {
+  margin-top: clamp(18px, 2.8vh, 28px);
+  padding: 20px 24px;
+  border-left: 5px solid #16833a;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 20px 52px rgba(27, 38, 34, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.ideology__vision span,
+.ideology__block h2 {
+  display: block;
+  margin: 0 0 14px;
+  color: #16833a;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ideology__vision p {
+  margin: 0;
+  color: rgba(20, 35, 30, 0.82);
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: 600;
+  line-height: 1.68;
+}
+
+.ideology__body {
+  display: block;
+  margin-top: 14px;
+}
+
+.ideology__block {
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 22px 58px rgba(28, 39, 35, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.ideology__list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: values;
+}
+
+.ideology__list li {
+  position: relative;
+  min-height: 40px;
+  padding: 10px 16px 12px 54px;
+  color: #1d2e28;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 2.3;
+  background: rgba(232, 239, 231, 0.84);
+}
+
+.ideology__list li::before {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #16833a;
+  color: #fff;
+  content: counter(values);
+  counter-increment: values;
+  font-size: 14px;
+  font-weight: 900;
+  transform: translateY(-50%);
+}
+
+.ideology-slogan {
+  position: absolute;
+  right: 15px;
+  bottom: 60px;
+  z-index: 2;
+  width: min(58vw, 820px);
+  pointer-events: none;
+}
+
+.ideology-slogan h2 {
+  margin: 0 0 10px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.ideology-slogan__items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.ideology-slogan__items article {
+  min-height: 116px;
+  padding: 14px 15px;
+  border-top: 3px solid rgba(255, 255, 255, 0.74);
+  background: rgba(246, 248, 244, 0.82);
+  box-shadow: 0 14px 28px rgba(30, 39, 35, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.ideology-slogan__items strong,
+.ideology-slogan__items span,
+.ideology-slogan__items p {
+  display: block;
+}
+
+.ideology-slogan__items strong {
+  color: #14231e;
+  font-size: 17px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.ideology-slogan__items span {
+  margin-top: 5px;
+  color: #8f4a35;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.ideology-slogan__items p {
+  margin: 10px 0 0;
+  color: rgba(25, 36, 32, 0.76);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.snap-section--third.is-active .ideology__header,
+.snap-section--third.is-active .ideology__vision,
+.snap-section--third.is-active .ideology__block,
+.snap-section--third.is-active .ideology-slogan {
+  animation: content-rise 0.72s ease forwards;
+}
+
+.snap-section--third.is-active .ideology__header {
+  animation-delay: 0.18s;
+}
+
+.snap-section--third.is-active .ideology__vision {
+  animation-delay: 0.38s;
+}
+
+.snap-section--third.is-active .ideology__block:nth-child(1) {
+  animation-delay: 0.72s;
+}
+
+.snap-section--third.is-active .ideology-slogan {
+  animation-delay: 1.58s;
+}
+
+@keyframes truck-arrive {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes chute-set {
+  to {
+    opacity: 1;
+    transform: rotate(18deg) translateX(0);
+  }
+}
+
+@keyframes stream-drop {
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes concrete-flow {
+  to {
+    transform: translateY(36px);
+  }
+}
+
+@keyframes form-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grain-show {
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .snap-section h1 {
     font-size: 36px;
@@ -478,5 +938,151 @@ body {
   .company-structure__rebar--four {
     right: 11vw;
     height: 250px;
+  }
+
+  .snap-section--third {
+    align-items: start;
+    background-size:
+      42px 42px,
+      42px 42px,
+      auto,
+      auto;
+  }
+
+  .concrete-pour::before {
+    right: -52px;
+    bottom: 34px;
+    width: 98vw;
+    height: 126px;
+  }
+
+  .concrete-pour__truck {
+    top: auto;
+    right: -10px;
+    bottom: 176px;
+    width: 206px;
+    height: 92px;
+  }
+
+  .concrete-pour__chute {
+    top: auto;
+    right: 106px;
+    bottom: 166px;
+    width: 168px;
+    height: 13px;
+  }
+
+  .concrete-pour__stream {
+    top: auto;
+    right: 250px;
+    bottom: 56px;
+    width: 30px;
+    height: 124px;
+  }
+
+  .concrete-pour__form {
+    right: 12px;
+    bottom: 42px;
+    width: calc(100% - 34px);
+    height: 76px;
+    border-width: 7px;
+  }
+
+  .ideology {
+    width: min(100% - 32px, 540px);
+    margin: 0 auto;
+    padding-top: 62px;
+    padding-bottom: 246px;
+  }
+
+  .ideology h1 {
+    font-size: clamp(40px, 13vw, 58px);
+  }
+
+  .ideology__eyebrow {
+    margin-bottom: 10px;
+  }
+
+  .ideology__vision {
+    margin-top: 14px;
+    padding: 18px 20px;
+  }
+
+  .ideology__vision p {
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .ideology__body {
+    margin-top: 10px;
+  }
+
+  .ideology__block {
+    padding: 18px;
+  }
+
+  .ideology__block h2,
+  .ideology__vision span {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .ideology__list {
+    gap: 7px;
+  }
+
+  .ideology__list li {
+    min-height: auto;
+    padding: 10px 12px 10px 46px;
+    font-size: 14px;
+  }
+
+  .ideology__list li::before {
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .ideology-slogan {
+    right: 20px;
+    bottom: 56px;
+    width: calc(100% - 40px);
+  }
+
+  .ideology-slogan h2 {
+    margin-bottom: 7px;
+    font-size: 12px;
+  }
+
+  .ideology-slogan__items {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .ideology-slogan__items article {
+    min-height: auto;
+    display: grid;
+    grid-template-columns: minmax(86px, 0.9fr) minmax(0, 1.5fr);
+    column-gap: 10px;
+    align-items: center;
+    padding: 9px 12px;
+  }
+
+  .ideology-slogan__items strong {
+    font-size: 14px;
+  }
+
+  .ideology-slogan__items span {
+    margin-top: 4px;
+    font-size: 10px;
+  }
+
+  .ideology-slogan__items p {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.35;
   }
 }
