@@ -13,12 +13,12 @@ export default function Header() {
   });
 
   const menuItems = [
-    { title: '회사소개', sub: ['인사말', '경영이념', '회사연혁', '기구조직도', '업·면허/인증'] },
-    { title: '사업실적', sub: ['공사수주 현황', '건설시공능력', '품질경영', '안전경영'] },
-    { title: '기술혁신', sub: ['기술혁신 비전', '기술혁신 News'] },
-    { title: '홍보센터', sub: ['News', '사회공헌', '홍보자료'] },
-    { title: '인재채용', sub: ['인사제도', '복리후생', '채용가이드'] },
-    { title: 'ESG경영', sub: ['품질경영', '안전경영', 'ESG경영'] },
+    { title: '회사소개', sub: ['인사말', '경영이념', '회사연혁', '기구조직도', '업·면허/인증', '주거래 시공사', '찾아오시는 길'], link: '#인사말' },
+    { title: '사업실적', sub: ['공사수주 현황', '건설시공능력', '품질경영', '안전경영'], link: '#공사수주 현황' },
+    { title: '기술혁신', sub: ['기술혁신 비전', '기술혁신 News'], link: '#기술혁신 비전' },
+    { title: '홍보센터', sub: ['News', '사회공헌', '홍보자료'], link: '#News' },
+    { title: '인재채용', sub: ['인사제도', '복리후생', '채용가이드'], link: '#인사제도' },
+    { title: 'ESG경영', sub: ['ESG', '환경경영', '윤리경영'], link: '#ESG' },
   ];
 
   const familySites = [
@@ -37,7 +37,6 @@ export default function Header() {
 
   return (
     <>
-      {/* 배경 오버레이 (데스크톱 메가 메뉴용) */}
       <AnimatePresence>
         {isMegaMenuOpen && !isOpen && (
           <motion.div 
@@ -65,7 +64,7 @@ export default function Header() {
             animate={{ opacity: isOpen ? 0 : 1 }}
             className={`flex items-center ${isOpen ? 'pointer-events-none' : ''}`}
           >
-            <a href="#" className="flex items-center">
+            <a href="./#" className="flex items-center">
               <img src="./images/태일-로고-removebg-preview.png" alt="태일씨앤티 로고" className="h-10 md:h-12 object-contain" />
             </a>
           </motion.div>
@@ -77,7 +76,12 @@ export default function Header() {
           >
             {menuItems.map(item => (
               <div key={item.title} className="relative py-4">
-                <a href={`#${item.title}`} className="text-white hover:text-green-400 transition-colors text-[18px] font-bold tracking-tight">{item.title}</a>
+                <a 
+                  href={item.link} 
+                  className="text-white hover:text-green-400 transition-colors text-[18px] font-bold tracking-tight"
+                >
+                  {item.title}
+                </a>
               </div>
             ))}
           </motion.nav>
@@ -93,7 +97,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* 데스크톱 메가 메뉴 패널 */}
         <AnimatePresence>
           {isMegaMenuOpen && !isOpen && (
             <motion.div
@@ -106,10 +109,20 @@ export default function Header() {
               <div className="max-w-7xl mx-auto px-12 py-12 grid grid-cols-6 gap-8">
                 {menuItems.map((item) => (
                   <div key={item.title}>
-                    <h3 className="text-green-400 text-[18px] font-bold mb-6 border-b border-green-400/30 pb-2">{item.title}</h3>
+                    <h3 className="text-green-400 text-[18px] font-bold mb-6 border-b border-green-400/30 pb-2">
+                      <a href={item.link} onClick={() => setIsMegaMenuOpen(false)}>{item.title}</a>
+                    </h3>
                     <ul className="space-y-3">
                       {item.sub.map(sub => (
-                        <li key={sub}><a href="#" className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all text-[16px]">{sub}</a></li>
+                        <li key={sub}>
+                          <a 
+                            href={`#${sub}`} 
+                            onClick={() => setIsMegaMenuOpen(false)}
+                            className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all text-[16px]"
+                          >
+                            {sub}
+                          </a>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -120,7 +133,6 @@ export default function Header() {
         </AnimatePresence>
       </motion.header>
 
-      {/* 전체 화면 오버레이 메뉴 */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -130,17 +142,25 @@ export default function Header() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-[55] pt-20 pb-12 px-6 md:px-12 overflow-y-auto flex flex-col"
           >
-            {/* 고정된 깊이감의 딥 그린 배경 (90% 투명도로 실루엣 허용) */}
             <div className="fixed inset-0 bg-[#042512]/90 backdrop-blur-3xl z-[-1]" />
-            
             <div className="max-w-7xl mx-auto w-full flex-grow flex flex-col justify-between mt-12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 mb-12">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 mb-12">
                 {menuItems.map((item, idx) => (
                   <motion.div key={item.title} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 + idx * 0.05 }}>
-                    <h3 className="text-white text-xl font-bold mb-6 border-b border-white/20 pb-2">{item.title}</h3>
+                    <h3 className="text-white text-xl font-bold mb-6 border-b border-white/20 pb-2">
+                      <a href={item.link} onClick={() => setIsOpen(false)}>{item.title}</a>
+                    </h3>
                     <ul className="space-y-4">
                       {item.sub.map(sub => (
-                        <li key={sub}><a href="#" onClick={() => setIsOpen(false)} className="text-white/70 hover:text-white hover:translate-x-2 inline-block transition-all text-lg font-light">{sub}</a></li>
+                        <li key={sub}>
+                          <a 
+                            href={`#${sub}`} 
+                            onClick={() => setIsOpen(false)} 
+                            className="text-white/70 hover:text-white hover:translate-x-2 inline-block transition-all text-lg font-light"
+                          >
+                            {sub}
+                          </a>
+                        </li>
                       ))}
                     </ul>
                   </motion.div>
@@ -151,9 +171,9 @@ export default function Header() {
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10">
                   <div className="space-y-4">
                     <div className="flex flex-wrap gap-x-6 gap-y-2 mb-6 text-[15px]">
-                      <a href="#" className="text-white hover:text-green-400 transition-colors font-medium">회사소개</a>
-                      <a href="#" className="text-white/60 hover:text-white transition-colors">개인정보처리방침</a>
-                      <a href="#" className="text-white/60 hover:text-white transition-colors">이메일무단수집거부</a>
+                      <a href="./#" className="text-white hover:text-green-400 transition-colors font-medium">회사소개</a>
+                      <a href="./#" className="text-white/60 hover:text-white transition-colors">개인정보처리방침</a>
+                      <a href="./#" className="text-white/60 hover:text-white transition-colors">이메일무단수집거부</a>
                     </div>
                     <div className="text-white/40 text-[14px] leading-relaxed font-light">
                       <p>(주)태일씨앤티 서울시 금천구 가산디지털2로 101( 가산동 549-1 ) 한라원앤원타워 B동 17층 1701호</p>
@@ -164,11 +184,11 @@ export default function Header() {
 
                   <div className="flex flex-col sm:flex-row lg:flex-col items-center sm:items-end gap-6 w-full sm:w-auto">
                     <motion.a
-                      href="#지원하기"
+                      href="#ESG"
                       onClick={() => setIsOpen(false)}
                       className="group flex items-center gap-3 py-2 text-white hover:text-green-400 transition-all w-full sm:w-auto justify-center sm:justify-end"
                     >
-                      <span className="text-[20px] font-bold tracking-tight">지금 바로 지원하기</span>
+                      <span className="text-[20px] font-bold tracking-tight">ESG 경영 바로가기</span>
                       <svg className="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
