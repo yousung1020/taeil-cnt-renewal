@@ -2,9 +2,11 @@ export function Section3() {
   return (
     <section
       id="section-3"
-      className="flex min-h-screen snap-start items-center bg-zinc-950 px-6 text-white"
+      className="relative z-10 flex min-h-screen snap-start items-center overflow-hidden px-6 text-white"
     >
-      <div className="mx-auto w-full max-w-7xl">
+      <div className="absolute inset-x-0 top-0 h-px bg-white/15" />
+
+      <div className="relative mx-auto w-full max-w-7xl">
         <p className="mb-4 text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
           Section 03
         </p>
