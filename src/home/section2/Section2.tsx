@@ -295,7 +295,8 @@ export function Section2() {
           </div>
 
           <div className="relative h-[440px] overflow-hidden border-l border-white/15 pl-8 max-lg:hidden">
-            <div className="absolute bottom-12 left-8 right-0 h-3 bg-white/20" />
+            <div className="section2-ground absolute bottom-8 left-8 right-0 h-20 overflow-hidden" />
+            <div className="absolute bottom-24 left-8 right-0 h-px bg-white/20" />
 
             {projects.map((project, index) => (
               <div
@@ -309,7 +310,7 @@ export function Section2() {
                 }}
                 aria-hidden="true"
               >
-                <div className="section2-rebar h-full w-full rounded-sm shadow-xl shadow-black/40" />
+                <div className="section2-rebar h-full w-full shadow-xl shadow-black/40" />
               </div>
             ))}
           </div>
