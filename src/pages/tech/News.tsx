@@ -50,28 +50,33 @@ export function News() {
           전체 <span className="font-bold text-gray-900">{filteredNews.length}</span>건
         </div>
         <div className="flex items-center rounded-lg border border-gray-200 overflow-hidden bg-white max-w-md">
-          <select className="px-3 py-2.5 border-r border-gray-200 outline-none bg-transparent text-gray-600 text-sm cursor-pointer shrink-0">
-            <option>제목</option>
-          </select>
+          <div className="relative border-r border-gray-200 shrink-0">
+            <select className="pl-4 pr-10 py-2.5 outline-none bg-transparent text-gray-600 text-sm cursor-pointer appearance-none">
+              <option>제목</option>
+            </select>
+            <svg className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
           <input
             type="text"
             placeholder="검색어를 입력하세요"
-            className="px-3 py-2.5 outline-none flex-1 min-w-0 text-sm bg-transparent"
+            className="px-4 py-2.5 outline-none flex-1 min-w-0 text-sm bg-transparent"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 flex items-center justify-center transition-colors text-sm font-medium gap-1.5 shrink-0">
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <button className="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 flex items-center justify-center transition-colors shrink-0">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            검색
           </button>
         </div>
       </div>
 
       {/* Table Area */}
-      <div className="bg-white border-x border-gray-200">
-        <div className="bg-gray-50 border-t-2 border-green-600 border-b border-gray-300 grid grid-cols-[120px_1fr_140px] items-stretch text-center shrink-0">
+      <div className="bg-white border-x border-gray-200 border-t md:border-t-0">
+        {/* Header - Hidden on Mobile */}
+        <div className="hidden md:grid bg-gray-50 border-t-2 border-green-600 border-b border-gray-300 grid-cols-[120px_1fr_140px] items-stretch text-center shrink-0">
           <span className="text-sm font-bold text-gray-700 py-4 border-r border-gray-300">분야</span>
           <span className="text-sm font-bold text-gray-700 py-4 border-r border-gray-300">제목</span>
           <span className="text-sm font-bold text-gray-700 py-4">등록일</span>
@@ -88,18 +93,22 @@ export function News() {
           ) : (
             <div className="divide-y divide-gray-200 border-b border-gray-200">
               {filteredNews.map((news) => (
-                <div key={news.id} className="grid grid-cols-[120px_1fr_140px] items-stretch hover:bg-gray-50/80 transition-all group cursor-pointer text-center animate-fade-in">
-                  <div className="py-5 flex items-center justify-center border-r border-gray-200">
-                    <span className="text-[11px] font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 group-hover:bg-green-100/50 transition-colors">
-                      {news.category}
-                    </span>
-                  </div>
-                  <div className="py-5 px-8 flex items-center justify-center border-r border-gray-200">
-                    <h5 className="font-bold text-gray-800 text-[15px] group-hover:text-green-700 transition-colors line-clamp-1">
+                <div key={news.id} className="flex flex-col md:grid md:grid-cols-[120px_1fr_140px] items-stretch hover:bg-gray-50/80 transition-all group cursor-pointer animate-fade-in">
+                  {/* Category & Title */}
+                  <div className="pt-6 pb-4 md:py-5 px-6 md:px-8 text-left md:border-r border-gray-200 flex flex-col md:flex-row md:items-center gap-3 md:gap-8">
+                    <div className="md:w-[120px] shrink-0 md:flex md:justify-center">
+                      <span className="text-[11px] font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 group-hover:bg-green-100/50 transition-colors inline-block">
+                        {news.category}
+                      </span>
+                    </div>
+                    <h5 className="font-bold text-gray-800 text-[15px] group-hover:text-green-700 transition-colors leading-snug">
                       {news.title}
                     </h5>
                   </div>
-                  <div className="py-5 flex items-center justify-center text-sm text-gray-500 font-medium bg-gray-50/30 group-hover:bg-transparent transition-colors">
+
+                  {/* Date */}
+                  <div className="py-3 md:py-5 px-6 md:px-0 flex items-center justify-start md:justify-center text-sm text-gray-500 font-medium bg-gray-50/30 md:bg-transparent group-hover:bg-transparent transition-colors border-t md:border-t-0 border-gray-100">
+                    <span className="md:hidden text-xs text-gray-400 mr-2">등록일:</span>
                     {news.date}
                   </div>
                 </div>

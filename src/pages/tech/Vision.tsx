@@ -95,7 +95,7 @@ export function Vision() {
 
       {/* 하단 설명 — 미래지향, 시스템, 유망기술 */}
       <section>
-        <div className="space-y-16 md:space-y-20">
+        <div className="space-y-12 md:space-y-16">
           {[
             {
               title: '미래지향적 기술 개발을 통한 기술 경쟁력 확보',
@@ -110,22 +110,22 @@ export function Vision() {
               desc: '미래 유망사업에 대한 다양한 분야로의 사업영역 확장을 위하여 계열사 (주)태경이노베이션을 설립하고 협력사와의 활발한 정보 교류와 신기술·신사업에 대한 발굴, 투자 사업을 진행하고 있습니다.',
             },
           ].map((item, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row gap-6 md:gap-12 items-start">
+            <div key={idx} className="flex flex-col md:flex-row gap-3 md:gap-8 items-start">
               {/* 좌측 녹색 라벨 */}
-              <div className="shrink-0 flex items-center gap-3">
+              <div className="shrink-0 flex items-center gap-3 mt-1">
                 <div className="w-1 h-8 bg-green-600 rounded-full"></div>
                 <span className="text-green-600 font-bold text-sm tracking-widest whitespace-nowrap">0{idx + 1}</span>
               </div>
 
               {/* 우측 내용 */}
-              <div className="flex-1">
-                <h5 className="text-lg md:text-xl font-bold text-gray-900 mb-4 leading-snug">
+              <div className="flex-1 -mt-2 md:-mt-3">
+                <h5 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug">
                   {item.title}
                 </h5>
                 <p className="text-gray-700 leading-relaxed text-[15px]">
                   {item.desc}
                 </p>
-                {idx < 2 && <div className="mt-12 md:mt-16 h-px bg-gray-100"></div>}
+                {idx < 2 && <div className="mt-10 md:mt-14 h-px bg-gray-100"></div>}
               </div>
             </div>
           ))}

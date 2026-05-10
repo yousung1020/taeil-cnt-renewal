@@ -87,7 +87,7 @@ export function Faq() {
                   isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-4 md:px-8 pb-8 pt-4 bg-gray-50">
+                <div className="px-4 md:px-8 py-8 bg-gray-50">
                   <div className="flex items-start">
                     <span className="text-lg font-bold text-green-600 mr-6 tracking-widest invisible">A{String(index + 1).padStart(2, '0')}</span>
                     <p className="text-gray-700 leading-relaxed">{faq.a}</p>

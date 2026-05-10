@@ -24,26 +24,34 @@ export function Notices() {
 
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-gray-600 text-sm">전체 <span className="font-bold text-gray-900">{filteredNotices.length}</span>건</div>
-        <div className="flex border border-gray-300 bg-white">
-          <select className="px-4 py-2 border-r border-gray-300 outline-none bg-transparent text-gray-600 text-sm cursor-pointer">
-            <option>제목</option>
-          </select>
+        <div className="flex border border-gray-300 bg-white rounded-lg overflow-hidden">
+          <div className="relative border-r border-gray-300 shrink-0 bg-white">
+            <select className="pl-4 pr-10 py-2.5 outline-none bg-transparent text-gray-600 text-sm cursor-pointer appearance-none">
+              <option>제목</option>
+            </select>
+            <svg className="w-4 h-4 text-gray-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
           <input
             type="text"
             placeholder="검색어를 입력하세요"
-            className="px-4 py-2 outline-none w-full md:w-64 text-sm"
+            className="px-4 py-2.5 outline-none w-full md:w-64 text-sm"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="bg-gray-900 text-white px-6 py-2 flex items-center justify-center hover:bg-gray-800 transition-colors text-sm font-medium tracking-wide">
-             검색
+          <button className="bg-gray-900 hover:bg-gray-800 text-white px-5 py-2.5 flex items-center justify-center transition-colors shrink-0">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
           </button>
         </div>
       </div>
 
       {/* Table Area (Matched to News style) */}
-      <div className="bg-white border-x border-gray-200">
-        <div className="bg-gray-50 border-t-2 border-green-600 border-b border-gray-300 grid grid-cols-[1fr_160px_140px] items-stretch text-center shrink-0">
+      <div className="bg-white border-x border-gray-200 border-t md:border-t-0">
+        {/* Header - Hidden on Mobile */}
+        <div className="hidden md:grid bg-gray-50 border-t-2 border-green-600 border-b border-gray-300 grid-cols-[1fr_160px_140px] items-stretch text-center shrink-0">
           <span className="text-sm font-bold text-gray-700 py-4 border-r border-gray-300">제목</span>
           <span className="text-sm font-bold text-gray-700 py-4 border-r border-gray-300">마감기한</span>
           <span className="text-sm font-bold text-gray-700 py-4">접수상태</span>
@@ -60,17 +68,37 @@ export function Notices() {
           ) : (
             <div className="divide-y divide-gray-200 border-b border-gray-200">
               {filteredNotices.map((notice) => (
-                <div key={notice.id} className="grid grid-cols-[1fr_160px_140px] items-stretch hover:bg-gray-50/80 transition-all group cursor-pointer text-center animate-fade-in">
-                  <div className="py-5 px-10 text-left border-r border-gray-200">
-                    <h5 className="font-bold text-gray-800 text-[15px] group-hover:text-green-700 transition-colors">
+                <div key={notice.id} className="flex flex-col md:grid md:grid-cols-[1fr_160px_140px] items-stretch hover:bg-gray-50/80 transition-all group cursor-pointer animate-fade-in">
+                  {/* Status & Title & Date */}
+                  <div className="pt-6 pb-5 px-6 md:px-10 text-left md:border-r border-gray-200">
+                    {/* Status Tag - Top on Mobile */}
+                    <div className="md:hidden mb-3">
+                      <span className={`inline-block text-[11px] font-bold px-3 py-1 rounded-full border ${
+                        notice.status === '진행중' ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                        notice.status === '마감임박' ? 'bg-red-50 text-red-600 border-red-100' :
+                        'bg-gray-50 text-gray-500 border-gray-200'
+                      }`}>
+                        {notice.status}
+                      </span>
+                    </div>
+
+                    <h5 className="font-bold text-gray-800 text-[15px] group-hover:text-green-700 transition-colors leading-snug">
                       {notice.title}
                     </h5>
-                    <span className="text-xs text-gray-400 mt-1 block">{notice.date}</span>
+                    <div className="flex items-center gap-3 mt-1.5">
+                      <span className="text-xs text-gray-400">{notice.date}</span>
+                      <span className="md:hidden text-xs text-gray-300">|</span>
+                      <span className="md:hidden text-xs text-green-600 font-semibold">마감: {notice.deadline}</span>
+                    </div>
                   </div>
-                  <div className="py-5 flex items-center justify-center border-r border-gray-200 text-sm text-gray-600 font-medium">
+
+                  {/* Deadline - Desktop only */}
+                  <div className="hidden md:flex py-5 items-center justify-center border-r border-gray-200 text-sm text-gray-600 font-medium">
                     {notice.deadline}
                   </div>
-                  <div className="py-5 flex items-center justify-center">
+
+                  {/* Status - Desktop only */}
+                  <div className="hidden md:flex py-5 px-6 md:px-0 items-center justify-center">
                     <span className={`inline-block text-[11px] font-bold px-3 py-1 rounded-full border ${
                       notice.status === '진행중' ? 'bg-blue-50 text-blue-600 border-blue-100' :
                       notice.status === '마감임박' ? 'bg-red-50 text-red-600 border-red-100' :
