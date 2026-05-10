@@ -25,7 +25,7 @@ export function Benefits() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d={item.icon} />
             </svg>
             <h4 className="text-xl font-bold mb-4 text-gray-900 tracking-tight">{item.title}</h4>
-            <p className="text-gray-500 leading-relaxed whitespace-pre-line text-sm font-light">
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line text-sm">
               {item.desc}
             </p>
           </div>

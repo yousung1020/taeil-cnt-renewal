@@ -26,17 +26,17 @@ export function SubLayout({ title, subtitle, tabs }: SubLayoutProps) {
         </div>
       </section>
 
-      {/* Tab Navigation */}
-      <div className="bg-white border-b border-gray-200 sticky top-[72px] z-30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex overflow-x-auto no-scrollbar snap-x space-x-1 md:space-x-6">
+      {/* Mobile Tab Navigation — 모바일에서만 상단 탭 표시 */}
+      <div className="lg:hidden bg-white border-b border-gray-200 sticky top-[72px] z-30">
+        <div className="px-4 sm:px-6">
+          <div className="flex overflow-x-auto no-scrollbar snap-x space-x-1">
             {tabs.map((tab) => {
               const isActive = location.pathname.startsWith(tab.path);
               return (
                 <Link 
                   key={tab.name} 
                   to={tab.path}
-                  className={`shrink-0 snap-center py-4 px-3 text-sm md:text-base font-medium whitespace-nowrap transition-colors duration-200 border-b-2 ${
+                  className={`shrink-0 snap-center py-4 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-200 border-b-2 ${
                     isActive ? 'border-green-600 text-green-600' : 'border-transparent text-gray-500 hover:text-gray-800'
                   }`}
                 >
@@ -48,9 +48,47 @@ export function SubLayout({ title, subtitle, tabs }: SubLayoutProps) {
         </div>
       </div>
 
-      {/* Page Content */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <Outlet />
+      {/* Desktop: Sidebar + Content / Mobile: Content Only */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="lg:flex lg:gap-12 py-12 md:py-16 lg:py-20">
+          
+          {/* Desktop Left Sidebar — lg 이상에서만 보임 */}
+          <aside className="hidden lg:block w-56 shrink-0">
+            <div className="sticky top-[140px]">
+              {/* Section Label */}
+              <div className="mb-6">
+                <h3 className="text-lg font-bold text-gray-900 tracking-tight">{subtitle}</h3>
+                <p className="text-xs font-medium text-gray-400 tracking-widest uppercase mt-1">{title}</p>
+              </div>
+
+              {/* Nav Links */}
+              <nav className="space-y-1">
+                {tabs.map((tab) => {
+                  const isActive = location.pathname.startsWith(tab.path);
+                  return (
+                    <Link
+                      key={tab.name}
+                      to={tab.path}
+                      className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-200 ${
+                        isActive
+                          ? 'bg-green-600 text-white'
+                          : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                      }`}
+                    >
+                      {tab.name}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
+          </aside>
+
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            <Outlet />
+          </main>
+
+        </div>
       </div>
     </div>
   );

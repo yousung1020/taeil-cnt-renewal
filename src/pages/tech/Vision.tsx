@@ -38,37 +38,57 @@ export function Vision() {
           VISION
         </h4>
 
-        <div className="max-w-3xl mx-auto">
-          {/* Challenge Innovation 카드 */}
-          <div className="relative rounded-t-2xl px-8 py-16 flex flex-col items-center text-center text-white overflow-hidden bg-gradient-to-br from-green-600 via-emerald-500 to-teal-500">
-            {/* Liquid blobs */}
-            <div className="absolute top-[-30px] right-[-40px] w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-[-20px] left-[-30px] w-40 h-40 bg-emerald-400/15 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-teal-300/10 rounded-full blur-2xl"></div>
-            
-            {/* Glass icon container */}
-            <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center mb-6 border border-white/20">
-              <svg className="w-9 h-9 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-            </div>
-            <h5 className="relative z-10 text-2xl md:text-3xl font-bold tracking-tight leading-snug drop-shadow-sm">
-              Challenge<br/>Innovation
-            </h5>
-          </div>
-
-          {/* 비전 항목 리스트 */}
-          <div className="border border-gray-200 border-t-0 rounded-b-2xl overflow-hidden divide-y divide-gray-200 bg-white">
-            {['기술경쟁력 확보', '품질 만족 · 고객 만족', '사업영역 다각화', '시스템 고도화'].map((item, idx) => (
-              <div
-                key={idx}
-                className="px-8 py-6 flex items-center gap-4 hover:bg-green-50/40 transition-colors group"
-              >
-                <span className="text-green-600 text-xs font-bold tracking-widest">0{idx + 1}</span>
-                <div className="w-px h-4 bg-gray-200"></div>
-                <span className="text-gray-800 font-medium group-hover:text-green-700 transition-colors">{item}</span>
+        <div className="max-w-4xl mx-auto relative px-4">
+          {/* Enhanced Background Glow */}
+          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-1/2 bg-green-100/40 rounded-full blur-[100px] -z-10"></div>
+          
+          <div className="bg-white/80 backdrop-blur-md rounded-[32px] overflow-hidden border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
+            {/* Top: Glass Hero Section */}
+            <div className="relative px-8 py-20 md:py-24 flex flex-col items-center text-center text-white overflow-hidden">
+              {/* Semi-transparent Multi-stop Gradient to prevent banding */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600 via-green-600/95 via-emerald-600/90 via-teal-600/85 to-teal-700/80 backdrop-blur-xl -z-10"></div>
+              
+              {/* Liquid decorative elements */}
+              <div className="absolute top-[-50px] right-[-50px] w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-[-40px] left-[-40px] w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl"></div>
+              
+              <div className="relative z-10">
+                <div className="w-20 h-20 rounded-2xl bg-white/15 backdrop-blur-md flex items-center justify-center mb-8 border border-white/20 shadow-xl mx-auto group-hover:scale-105 transition-transform duration-500">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
+                </div>
+                <h5 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-4 drop-shadow-sm">
+                  Challenge & Innovation
+                </h5>
+                <p className="text-green-50/70 font-medium tracking-[0.4em] uppercase text-xs md:text-sm">Strategic Future Excellence</p>
               </div>
-            ))}
+            </div>
+
+            {/* Bottom: Strategy Grid with fixed dividers */}
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 bg-white/50">
+              {[
+                { title: '기술경쟁력 확보', desc: '독자적인 신기술 개발 및 우수 특허 확보' },
+                { title: '품질 만족 · 고객 만족', desc: '철저한 공정 관리와 시공 품질 극대화' },
+                { title: '사업영역 다각화', desc: '미래 유망 산업으로의 전략적 진출' },
+                { title: '시스템 고도화', desc: '디지털 트랜스포메이션을 통한 효율적 관리' }
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="px-10 py-12 hover:bg-green-50/40 transition-all duration-300 group cursor-default"
+                >
+                  <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-4">
+                      <span className="text-green-700/40 font-black text-3xl leading-none tracking-tighter group-hover:text-green-600 transition-all duration-300">
+                        0{idx + 1}
+                      </span>
+                      <h6 className="text-xl font-bold text-gray-900 group-hover:text-green-700 transition-colors">{item.title}</h6>
+                    </div>
+                    <p className="text-gray-700 text-[15px] leading-relaxed font-medium pl-[52px]">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -102,7 +122,7 @@ export function Vision() {
                 <h5 className="text-lg md:text-xl font-bold text-gray-900 mb-4 leading-snug">
                   {item.title}
                 </h5>
-                <p className="text-gray-500 leading-relaxed text-[15px]">
+                <p className="text-gray-700 leading-relaxed text-[15px]">
                   {item.desc}
                 </p>
                 {idx < 2 && <div className="mt-12 md:mt-16 h-px bg-gray-100"></div>}
