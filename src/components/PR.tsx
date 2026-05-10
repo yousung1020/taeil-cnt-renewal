@@ -20,7 +20,7 @@ export default function PR() {
   const activeMenu = sideMenuItems.find(item => `#${item.name}` === currentSubPath) || sideMenuItems[0];
 
   return (
-    <SubLayout title="홍보센터" menuItems={sideMenuItems} activePath={currentSubPath} heroImage="./images/cropped_news.jpg">
+    <SubLayout title="홍보센터" menuItems={sideMenuItems} activePath={currentSubPath}>
       <motion.div key={activeMenu.name} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
         <div className="border-b border-gray-100 pb-8 mb-12">
           <h3 className="text-3xl font-bold text-zinc-900">{activeMenu.name}</h3>

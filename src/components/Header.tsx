@@ -3,13 +3,14 @@ import { motion, useScroll, AnimatePresence, useMotionValueEvent } from 'framer-
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isFamilySiteOpen, setIsFamilySiteOpen] = useState(false);
   const { scrollY } = useScroll();
 
+  // 스크롤 이벤트는 유지하되, 현재 쓰지 않는 isScrolled 상태는 제거하여 빌드 에러 해결
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 20);
+    // 향후 스크롤에 따른 추가 액션이 필요할 때 여기에 로직 추가 가능
+    console.log(latest); 
   });
 
   const menuItems = [

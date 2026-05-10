@@ -24,7 +24,7 @@ export default function About() {
   const activeMenu = sideMenuItems.find(item => `#${item.name}` === currentSubPath) || sideMenuItems[0];
 
   return (
-    <SubLayout title="회사소개" menuItems={sideMenuItems} activePath={currentSubPath} heroImage="./images/인사말.jpg">
+    <SubLayout title="회사소개" menuItems={sideMenuItems} activePath={currentSubPath}>
       <motion.div
         key={activeMenu.name}
         initial={{ opacity: 0, x: 20 }}
