@@ -184,11 +184,11 @@ export default function Header() {
 
                   <div className="flex flex-col sm:flex-row lg:flex-col items-center sm:items-end gap-6 w-full sm:w-auto">
                     <motion.a
-                      href="#ESG"
+                      href="#지원하기"
                       onClick={() => setIsOpen(false)}
                       className="group flex items-center gap-3 py-2 text-white hover:text-green-400 transition-all w-full sm:w-auto justify-center sm:justify-end"
                     >
-                      <span className="text-[20px] font-bold tracking-tight">ESG 경영 바로가기</span>
+                      <span className="text-[20px] font-bold tracking-tight">지금 바로 지원하기</span>
                       <svg className="w-6 h-6 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
