@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import { newsData } from "../../data/news";
 import { socialData } from "../../data/social";
 
@@ -18,58 +18,20 @@ const preventPendingDetailNavigation = (
 };
 
 export function Section3() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [isEntered, setIsEntered] = useState(false);
   const latestNews = useMemo(() => sortByLatest(newsData), []);
   const latestSocial = useMemo(() => sortByLatest(socialData)[0], []);
-
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsEntered(entry.isIntersecting);
-      },
-      {
-        threshold: 0.55,
-      },
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
       id="section-3"
-      ref={sectionRef}
-      className={`section3-concrete relative z-10 flex h-screen snap-start items-center overflow-hidden px-6 py-8 text-white ${
-        isEntered ? "is-entered" : ""
-      }`}
+      className="section3-concrete relative z-10 flex h-screen snap-start items-center overflow-hidden px-6 py-8 text-white"
     >
       <div className="absolute inset-x-0 top-0 h-px bg-white/15" />
-      <div className="section3-pour-scene" aria-hidden="true">
-        <div className="section3-hose" />
-        <div className="section3-pour" />
-        <div className="section3-splash section3-splash-left" />
-        <div className="section3-splash section3-splash-right" />
-      </div>
-      <div className="section3-fill" aria-hidden="true" />
-      <div className="section3-texture" aria-hidden="true" />
 
       <div className="section3-content relative mx-auto w-full max-w-[1360px]">
         <div className="section3-reveal section3-reveal-title text-center">
           <p className="text-4xl font-black tracking-[0.16em] text-white sm:text-5xl lg:text-6xl">
             NEWS
-          </p>
-          <p className="mt-2 text-lg font-black tracking-[0.22em] sm:text-xl">
-            <span className="text-emerald-300">TAEIL</span>
-            <span className="text-emerald-800">CNT</span>
           </p>
         </div>
 

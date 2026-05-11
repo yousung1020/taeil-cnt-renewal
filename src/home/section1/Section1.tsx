@@ -116,17 +116,17 @@ export function Section1() {
             className="h-full w-full object-cover"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-neutral-950/65" />
+          <div className="absolute inset-0 bg-[#40776D]/80" />
 
           <div
-            className={`absolute inset-0 flex items-center px-6 py-20 text-center transition-all delay-150 duration-700 ease-out ${
+            className={`absolute inset-0 flex items-center px-6 py-20 text-center transition-all duration-300 ease-out ${
               activeSlide === index
                 ? "translate-y-0 opacity-100"
                 : "translate-y-10 opacity-0"
             }`}
           >
             <div className="mx-auto flex min-h-[70vh] w-full max-w-7xl flex-col items-center justify-center">
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-amber-300">
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#55B76F]">
                 {slide.eyebrow}
               </p>
               <h1 className="mx-auto max-w-5xl break-keep text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
@@ -134,11 +134,13 @@ export function Section1() {
               </h1>
               <div className="mt-12 flex min-h-28 w-full items-center justify-center">
                 {slide.visual.type === "image" ? (
-                  <img
-                    src={slide.visual.src}
-                    alt={slide.visual.alt}
-                    className={`${slide.visual.className} max-h-40 object-contain`}
-                  />
+                  <div className="rounded-2xl border border-white/25 bg-white/10 px-8 py-5 shadow-xl shadow-black/20 backdrop-blur">
+                    <img
+                      src={slide.visual.src}
+                      alt={slide.visual.alt}
+                      className={`${slide.visual.className} max-h-40 object-contain`}
+                    />
+                  </div>
                 ) : (
                   slide.visual.node
                 )}
