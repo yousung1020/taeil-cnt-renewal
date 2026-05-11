@@ -1,5 +1,5 @@
-import type { MouseEvent } from "react";
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 import { newsData } from "../../data/news";
 import { socialData } from "../../data/social";
 
@@ -10,12 +10,6 @@ const sortByLatest = <T extends { date: string }>(items: T[]) =>
   );
 
 const getDetailHref = (type: "news" | "social", id: number) => `/${type}/${id}`;
-
-const preventPendingDetailNavigation = (
-  event: MouseEvent<HTMLAnchorElement>,
-) => {
-  event.preventDefault();
-};
 
 export function Section3() {
   const latestNews = useMemo(() => sortByLatest(newsData), []);
@@ -61,9 +55,8 @@ export function Section3() {
             </p>
             <div className="divide-y divide-white/15 border-y border-white/15">
               {latestNews.slice(0, 3).map((post, index) => (
-                <a
-                  href={getDetailHref("news", post.id)}
-                  onClick={preventPendingDetailNavigation}
+                <Link
+                  to={getDetailHref("news", post.id)}
                   data-detail-type="news"
                   data-detail-id={post.id}
                   className="group grid grid-cols-[2.25rem_minmax(0,1fr)] gap-4 py-5"
@@ -80,7 +73,7 @@ export function Section3() {
                       {post.title}
                     </h3>
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -104,9 +97,8 @@ function FeaturePost({
   imageUrl: string;
 }) {
   return (
-    <a
-      href={getDetailHref(type, id)}
-      onClick={preventPendingDetailNavigation}
+    <Link
+      to={getDetailHref(type, id)}
       data-detail-type={type}
       data-detail-id={id}
       className="group grid min-h-[152px] overflow-hidden border border-white/15 bg-neutral-950/34 shadow-xl shadow-black/20 backdrop-blur-sm sm:grid-cols-[minmax(220px,0.48fr)_minmax(0,1fr)]"
@@ -126,6 +118,6 @@ function FeaturePost({
           {title}
         </h3>
       </div>
-    </a>
+    </Link>
   );
 }
