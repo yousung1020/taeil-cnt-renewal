@@ -9,10 +9,11 @@ const sortByLatest = <T extends { date: string }>(items: T[]) =>
       new Date(second.date).getTime() - new Date(first.date).getTime(),
   );
 
-const getDetailHref = (type: "news" | "social", id: number) =>
-  `/${type}/${id}`;
+const getDetailHref = (type: "news" | "social", id: number) => `/${type}/${id}`;
 
-const preventPendingDetailNavigation = (event: MouseEvent<HTMLAnchorElement>) => {
+const preventPendingDetailNavigation = (
+  event: MouseEvent<HTMLAnchorElement>,
+) => {
   event.preventDefault();
 };
 
