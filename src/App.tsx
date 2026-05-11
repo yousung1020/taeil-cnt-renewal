@@ -1,4 +1,5 @@
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from "./home/Home";
 import NewsPage from './pages/NewsPage'
 import SocialPage from './pages/SocialPage'
 import PostDetailPage from './pages/PostDetailPage'
@@ -8,7 +9,7 @@ function App() {
     <Router>
       <div className="w-full">
         <Routes>
-          <Route path="/" element={<Navigate to="/news" replace />} />
+          <Route path="/" element={<Home />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/news/:id" element={<PostDetailPage type="news" />} />
           <Route path="/social" element={<SocialPage />} />
