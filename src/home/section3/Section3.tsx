@@ -29,14 +29,14 @@ export function Section3() {
       <div className="absolute inset-x-0 top-0 h-px bg-white/15" />
 
       <div className="section3-content relative mx-auto w-full max-w-[1360px]">
-        <div className="section3-reveal section3-reveal-title text-center">
+        <div className="text-center">
           <p className="text-4xl font-black tracking-[0.16em] text-white sm:text-5xl lg:text-6xl">
             NEWS
           </p>
         </div>
 
         <div className="mt-8 grid items-stretch gap-6 lg:grid-cols-[minmax(0,1.35fr)_1px_minmax(260px,0.65fr)] lg:gap-8">
-          <div className="section3-reveal section3-reveal-media grid gap-4">
+          <div className="grid gap-4">
             <FeaturePost
               label="Latest News"
               type="news"
@@ -53,9 +53,9 @@ export function Section3() {
             />
           </div>
 
-          <div className="section3-reveal section3-reveal-divider hidden h-full min-h-[330px] bg-white/18 lg:block" />
+          <div className="hidden h-full min-h-[330px] bg-white/18 lg:block" />
 
-          <div className="section3-reveal section3-reveal-list rounded-sm border border-white/15 bg-neutral-950/42 p-5 shadow-2xl shadow-black/30 backdrop-blur-sm">
+          <div className="rounded-sm border border-white/15 bg-neutral-950/42 p-5 shadow-2xl shadow-black/30 backdrop-blur-sm">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-emerald-200">
               Recent News
             </p>
