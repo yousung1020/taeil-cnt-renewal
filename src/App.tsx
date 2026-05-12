@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { Layout } from './components/Layout';
-import { SubLayout } from './components/SubLayout';
-import Home from './home/Home';
+import Header from './components/Header';
+import SubLayout from './components/SubLayout';
+import Home from "./home/Home";
 
-// PR / News Pages
 import NewsPage from './pages/NewsPage';
 import SocialPage from './pages/SocialPage';
 import PostDetailPage from './pages/PostDetailPage';
+import About from './components/About';
+import Work from './components/Work';
+import ESG from './components/ESG';
 
 // Job Pages
 import { System as JobSystem } from './pages/job/System';
@@ -35,17 +37,23 @@ const techTabs = [
 function App() {
   return (
     <Router>
-      <div className="w-full">
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+      <div className="bg-black min-h-screen font-sans">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about/:subpage?" element={<About />} />
+            <Route path="/work/:subpage?" element={<Work />} />
             
-            <Route path="news" element={<NewsPage />} />
-            <Route path="news/:id" element={<PostDetailPage type="news" />} />
-            <Route path="social" element={<SocialPage />} />
-            <Route path="social/:id" element={<PostDetailPage type="social" />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:id" element={<PostDetailPage type="news" />} />
+            <Route path="/social" element={<SocialPage />} />
+            <Route path="/social/:id" element={<PostDetailPage type="social" />} />
+            
+            <Route path="/esg/:subpage?" element={<ESG />} />
 
-            <Route path="job" element={<SubLayout title="CAREERS" subtitle="인재채용" tabs={jobTabs} />}>
+            {/* Develop Branch Nested Pages using SubLayout compatible with Outlet */}
+            <Route path="/job" element={<SubLayout title="CAREERS" subtitle="인재채용" tabs={jobTabs} />}>
               <Route index element={<Navigate to="system" replace />} />
               <Route path="system" element={<JobSystem />} />
               <Route path="benefits" element={<JobBenefits />} />
@@ -54,13 +62,13 @@ function App() {
               <Route path="faq" element={<JobFaq />} />
             </Route>
 
-            <Route path="tech" element={<SubLayout title="INNOVATION" subtitle="기술혁신" tabs={techTabs} />}>
+            <Route path="/tech" element={<SubLayout title="INNOVATION" subtitle="기술혁신" tabs={techTabs} />}>
               <Route index element={<Navigate to="vision" replace />} />
               <Route path="vision" element={<TechVision />} />
               <Route path="news" element={<TechNews />} />
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </main>
       </div>
     </Router>
   );

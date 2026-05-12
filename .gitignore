@@ -36,3 +36,6 @@ dist-ssr/
 .env.local
 
 docs/
+# Large Media Files
+*.mp4
+public/source/

@@ -8,7 +8,7 @@ interface PostListProps {
   title: string;
 }
 
-const PostList: React.FC<PostListProps> = ({ posts, basePath, title }) => {
+const PostList: React.FC<PostListProps> = ({ posts, basePath }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
@@ -25,12 +25,7 @@ const PostList: React.FC<PostListProps> = ({ posts, basePath, title }) => {
   };
 
   return (
-    <div className="flex-grow lg:ml-12 mt-10 lg:mt-0">
-      <div className="border-b-2 border-taeil-dark pb-4 mb-8 flex justify-between items-end">
-        <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{title}</h3>
-        <p className="hidden lg:block text-sm text-gray-500">홈 &gt; 홍보센터 &gt; {title}</p>
-      </div>
-
+    <div className="flex-grow mt-10 lg:mt-0">
       <div className="space-y-6 md:space-y-8">
         {currentPosts.map((post) => (
           <div 

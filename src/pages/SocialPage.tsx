@@ -1,35 +1,26 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { socialData } from '../data/social';
-import PRSidebar from '../components/pr/PRSidebar';
+import SubLayout from '../components/SubLayout';
 import PostList from '../components/pr/PostList';
 
 const SocialPage: React.FC = () => {
-  return (
-    <div className="min-h-screen bg-white">
-      <div className="h-64 bg-gray-200 relative flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-40"></div>
-        <h1 className="relative text-white text-5xl font-bold z-10">홍보센터</h1>
-      </div>
+  const sideMenuItems = [
+    { name: 'News', desc: '태일씨앤티의 최신 소식을 알려드립니다.', path: '/news' },
+    { name: '사회공헌', desc: '함께 나누는 따뜻한 세상을 만들어갑니다.', path: '/social' },
+    { name: '홍보자료', desc: '태일씨앤티의 다양한 홍보 자료를 확인하세요.', path: '/pr-material' },
+  ];
 
-      <div className="max-w-7xl mx-auto py-8 md:py-12 lg:py-20 px-4">
-        <div className="flex flex-col lg:flex-row">
-          <PRSidebar currentMenu="사회공헌" />
-          <div className="flex-grow">
-            <div className="lg:ml-12 mt-8 lg:mt-0 mb-8 lg:mb-12">
-              <div className="bg-white border border-gray-100 shadow-sm rounded-lg p-6 md:p-8 flex items-center relative overflow-hidden">
-                {/* Decorative Accent */}
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-taeil-light"></div>
-                
-                <p className="text-base md:text-lg text-gray-700 leading-relaxed font-medium">
-                  태일씨앤티는 기업의 사회적 책임을 다하고, 나눔을 실천하고자 다양한 사회공헌 활동을 위해 노력하고 있습니다.
-                </p>
-              </div>
-            </div>
-            <PostList posts={socialData} basePath="social" title="사회공헌" />
-          </div>
+  return (
+    <SubLayout title="PR CENTER" subtitle="홍보센터" menuItems={sideMenuItems} activePath="/social">
+      <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
+        <div className="border-b border-gray-100 pb-8 mb-12">
+          <h3 className="text-3xl font-bold text-zinc-900">사회공헌</h3>
+          <p className="text-gray-500 mt-2 text-lg">함께 나누는 따뜻한 세상을 만들어갑니다.</p>
         </div>
-      </div>
-    </div>
+        <PostList posts={socialData} basePath="social" title="사회공헌" />
+      </motion.div>
+    </SubLayout>
   );
 };
 
