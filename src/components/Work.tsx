@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import SubLayout from './SubLayout';
-import { CheckCircle2, ShieldCheck, BarChart3, HardHat, ClipboardCheck } from 'lucide-react';
+import { CheckCircle2, BarChart3, ClipboardCheck } from 'lucide-react';
 
 // 이미지 임포트
 import suwonImg from '../assets/suwon.png';
