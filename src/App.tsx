@@ -1,7 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { SubLayout } from './components/SubLayout';
-import { Home } from './pages/Home';
+import Home from './home/Home';
+
+// PR / News Pages
+import NewsPage from './pages/NewsPage';
+import SocialPage from './pages/SocialPage';
+import PostDetailPage from './pages/PostDetailPage';
 
 // Job Pages
 import { System as JobSystem } from './pages/job/System';
@@ -30,26 +35,33 @@ const techTabs = [
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          
-          <Route path="job" element={<SubLayout title="CAREERS" subtitle="인재채용" tabs={jobTabs} />}>
-            <Route index element={<Navigate to="system" replace />} />
-            <Route path="system" element={<JobSystem />} />
-            <Route path="benefits" element={<JobBenefits />} />
-            <Route path="guide" element={<JobGuide />} />
-            <Route path="notices" element={<JobNotices />} />
-            <Route path="faq" element={<JobFaq />} />
-          </Route>
+      <div className="w-full">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            
+            <Route path="news" element={<NewsPage />} />
+            <Route path="news/:id" element={<PostDetailPage type="news" />} />
+            <Route path="social" element={<SocialPage />} />
+            <Route path="social/:id" element={<PostDetailPage type="social" />} />
 
-          <Route path="tech" element={<SubLayout title="INNOVATION" subtitle="기술혁신" tabs={techTabs} />}>
-            <Route index element={<Navigate to="vision" replace />} />
-            <Route path="vision" element={<TechVision />} />
-            <Route path="news" element={<TechNews />} />
+            <Route path="job" element={<SubLayout title="CAREERS" subtitle="인재채용" tabs={jobTabs} />}>
+              <Route index element={<Navigate to="system" replace />} />
+              <Route path="system" element={<JobSystem />} />
+              <Route path="benefits" element={<JobBenefits />} />
+              <Route path="guide" element={<JobGuide />} />
+              <Route path="notices" element={<JobNotices />} />
+              <Route path="faq" element={<JobFaq />} />
+            </Route>
+
+            <Route path="tech" element={<SubLayout title="INNOVATION" subtitle="기술혁신" tabs={techTabs} />}>
+              <Route index element={<Navigate to="vision" replace />} />
+              <Route path="vision" element={<TechVision />} />
+              <Route path="news" element={<TechNews />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </div>
     </Router>
   );
 }
