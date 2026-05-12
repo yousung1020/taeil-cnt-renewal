@@ -18,16 +18,16 @@ const coreValues = [
 
 export function CoreValueGraphic() {
   return (
-    <div className="grid w-full max-w-4xl gap-4 text-white sm:grid-cols-3">
+    <div className="grid w-full max-w-3xl gap-3 text-white sm:grid-cols-3">
       {coreValues.map((value) => (
         <div
-          className="rounded-2xl border border-white/25 bg-white/10 p-5 text-center shadow-xl shadow-black/20 backdrop-blur"
+          className="rounded-xl border border-white/25 bg-white/10 p-4 text-center shadow-xl shadow-black/20 backdrop-blur"
           key={value.label}
         >
-          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-300/25 via-emerald-400/20 to-cyan-400/25 text-amber-300">
+          <div className="mx-auto mb-3 flex size-14 items-center justify-center rounded-xl bg-gradient-to-br from-amber-300/25 via-emerald-400/20 to-cyan-400/25 text-amber-300">
             <CoreValueIcon type={value.icon} />
           </div>
-          <p className="break-keep text-base font-bold leading-relaxed sm:text-lg">
+          <p className="break-keep text-sm font-bold leading-relaxed sm:text-base">
             {value.label}
             <br />
             {value.subLabel}

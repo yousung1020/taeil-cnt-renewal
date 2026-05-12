@@ -10,294 +10,53 @@ body {
   min-height: 100svh;
 }
 
-.section2-bg {
-  background-image:
-    linear-gradient(135deg, rgba(64, 119, 109, 0.94), rgba(85, 183, 111, 0.82)),
-    linear-gradient(180deg, #40776d, #25564e);
-}
-
-.section2-drawing {
-  --section2-line-bright: rgba(255, 255, 255, 0.18);
-  --section2-line-medium: rgba(255, 255, 255, 0.14);
-  --section2-line-soft: rgba(255, 255, 255, 0.12);
-
-  opacity: 0.42;
+/* Section2, Section3 공통 도면 배경 */
+.section-blueprint {
+  background-color: #f6faf7;
   background-image:
     linear-gradient(
-      90deg,
-      transparent 0 11%,
-      var(--section2-line-bright) 11% 11.12%,
-      transparent 11.12% 100%
+      to bottom,
+      rgba(255, 255, 255, 1) 0,
+      rgba(255, 255, 255, 0.96) 96px,
+      rgba(246, 250, 247, 0.82) 220px,
+      rgba(246, 250, 247, 0.34) 420px,
+      rgba(246, 250, 247, 0) 620px
     ),
-    linear-gradient(
-      90deg,
-      transparent 0 72%,
-      rgba(255, 255, 255, 0.13) 72% 72.1%,
-      transparent 72.1% 100%
-    ),
-    linear-gradient(
-      0deg,
-      transparent 0 23%,
-      var(--section2-line-medium) 23% 23.12%,
-      transparent 23.12% 100%
-    ),
-    linear-gradient(
-      0deg,
-      transparent 0 78%,
-      var(--section2-line-soft) 78% 78.1%,
-      transparent 78.1% 100%
-    ),
-    radial-gradient(
-      circle at 86% 24%,
-      transparent 0 34px,
-      rgba(255, 255, 255, 0.2) 35px 36px,
-      transparent 37px
-    ),
-    radial-gradient(
-      circle at 10% 72%,
-      transparent 0 52px,
-      var(--section2-line-medium) 53px 54px,
-      transparent 55px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 110px,
-      rgba(255, 255, 255, 0.09) 110px 111px,
-      transparent 111px 220px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 88px,
-      rgba(255, 255, 255, 0.08) 88px 89px,
-      transparent 89px 176px
-    ),
-    repeating-linear-gradient(
-      135deg,
-      transparent 0 26px,
-      rgba(255, 255, 255, 0.1) 26px 27px,
-      transparent 27px 52px
-    );
-  mask-image: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.35) 45%,
-    rgba(0, 0, 0, 0.75)
-  );
-  pointer-events: none;
-}
-
-.section2-drawing::before,
-.section2-drawing::after,
-.section2-rebar::before,
-.section2-rebar::after,
-.section2-ground::before,
-.section2-ground::after {
-  position: absolute;
-  content: "";
-  pointer-events: none;
-}
-
-.section2-drawing::before,
-.section2-drawing::after {
-  color: rgba(255, 255, 255, 0.34);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-shadow:
-    0 -18px 0 rgba(255, 255, 255, 0.18),
-    64px 26px 0 rgba(255, 255, 255, 0.14);
-}
-
-.section2-drawing::before {
-  content: "RC-240 / REBAR PLAN   ───  A-A'   1:120";
-  left: 8%;
-  top: 18%;
-}
-
-.section2-drawing::after {
-  content: "D13 @ 200   ∅19 ANCHOR   SLAB THK 240";
-  right: 9%;
-  bottom: 18%;
-}
-
-.section2-rebar {
-  --section2-steel-dark: rgba(24, 24, 27, 0.86);
-  --section2-steel-ridge: rgba(255, 255, 255, 0.12);
-
+    /* 큰 격자 (주요선) */
+    linear-gradient(rgba(64, 119, 109, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 119, 109, 0.08) 1px, transparent 1px),
+    /* 작은 격자 (보조선) */
+    linear-gradient(rgba(64, 119, 109, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(64, 119, 109, 0.035) 1px, transparent 1px);
+  background-size: 100% 620px, 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+  background-repeat: no-repeat, repeat, repeat, repeat, repeat;
   position: relative;
-  overflow: hidden;
-  border-radius: 3px 5px 2px 4px;
-  box-shadow:
-    inset 5px 0 7px rgba(255, 255, 255, 0.36),
-    inset -6px 0 8px rgba(39, 39, 42, 0.76),
-    0 12px 24px rgba(0, 0, 0, 0.38);
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.2),
-      transparent 26%,
-      rgba(0, 0, 0, 0.3) 78%
-    ),
-    repeating-linear-gradient(
-      135deg,
-      var(--section2-steel-dark) 0 5px,
-      var(--section2-steel-ridge) 5px 7px,
-      transparent 7px 16px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(39, 39, 42, 0.38) 0 2px,
-      transparent 2px 31px
-    ),
-    linear-gradient(90deg, #52525b, #d4d4d8 38%, #3f3f46);
 }
 
-.section2-rebar::before,
-.section2-rebar::after {
-  inset: 0;
-  border-radius: inherit;
-}
-
-.section2-rebar::before {
-  background:
-    radial-gradient(
-      circle at 45% 12%,
-      rgba(24, 24, 27, 0.42) 0 1px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 62% 39%,
-      rgba(24, 24, 27, 0.36) 0 1px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 38% 68%,
-      rgba(24, 24, 27, 0.34) 0 1px,
-      transparent 2px
-    );
-  background-size: 18px 34px;
-  mix-blend-mode: multiply;
-}
-
-.section2-rebar::after {
-  border-left: 1px solid rgba(255, 255, 255, 0.22);
-  border-right: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.section2-ground {
-  border-top: 1px solid rgba(255, 255, 255, 0.24);
-  background-image:
-    linear-gradient(180deg, rgba(120, 113, 108, 0.88), rgba(68, 64, 60, 0.94)),
-    repeating-linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.12) 0 1px,
-      transparent 1px 12px
-    ),
-    radial-gradient(
-      circle at 12% 35%,
-      rgba(255, 255, 255, 0.18) 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 38% 68%,
-      rgba(0, 0, 0, 0.2) 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 74% 42%,
-      rgba(255, 255, 255, 0.14) 0 2px,
-      transparent 3px
-    );
-}
-
-.section2-ground::before {
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.18),
-      transparent 18%,
-      rgba(255, 255, 255, 0.08) 54%,
-      transparent
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 16px,
-      rgba(0, 0, 0, 0.12) 16px 17px
-    );
-}
-
-.section2-ground::after {
-  left: 0;
-  right: 0;
-  top: 10px;
-  height: 18px;
-  background-image:
-    radial-gradient(
-      circle at 8px 9px,
-      rgba(39, 39, 42, 0.58) 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 30px 7px,
-      rgba(245, 245, 244, 0.24) 0 1px,
-      transparent 2px
-    );
-  background-size: 42px 18px;
-}
-
-.section3-concrete {
-  isolation: isolate;
-  background:
-    radial-gradient(
-      circle at 15% 18%,
-      rgba(85, 183, 111, 0.12),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 82% 76%,
-      rgba(64, 119, 109, 0.18),
-      transparent 32%
-    ),
-    linear-gradient(180deg, #222421, #111312);
-}
-
-.section3-concrete::before {
+/* 도면 좌상단 기술 주석 */
+.section-blueprint::before {
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image:
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 34px,
-      rgba(12, 13, 13, 0.92) 34px 41px,
-      rgba(255, 255, 255, 0.12) 41px 42px,
-      rgba(41, 43, 42, 0.88) 42px 46px,
-      transparent 46px 80px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 31px,
-      rgba(12, 13, 13, 0.94) 31px 38px,
-      rgba(255, 255, 255, 0.1) 38px 39px,
-      rgba(41, 43, 42, 0.9) 39px 43px,
-      transparent 43px 76px
-    ),
-    linear-gradient(135deg, #5c5b55, #363834 48%, #171817);
-  background-size: auto, auto, auto;
-  background-position: center, center, center;
-  content: "";
-}
-
-.section3-concrete::after {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: rgba(64, 119, 109, 0.68);
-  content: "";
+  content: "RC-240 / REBAR PLAN   ───  A-A'   1:120";
+  left: 6%;
+  top: 6%;
+  color: rgba(64, 119, 109, 0.22);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   pointer-events: none;
+  z-index: 0;
 }
 
-.section3-content {
-  z-index: 3;
+/* 도면 우하단 기술 주석 */
+.section-blueprint::after {
+  position: absolute;
+  content: "D13 @ 200   ∅19 ANCHOR   SLAB THK 240";
+  right: 6%;
+  bottom: 4%;
+  color: rgba(64, 119, 109, 0.22);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  pointer-events: none;
+  z-index: 0;
 }
