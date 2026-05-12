@@ -41,7 +41,7 @@ const PostDetailPage: React.FC<PostDetailPageProps> = ({ type }) => {
     <SubLayout title="홍보센터" menuItems={sideMenuItems} activePath={activePath}>
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
         <article className="max-w-4xl">
-          <header className="mb-12 border-b border-gray-100 pb-8">
+          <header className="mb-12 border-b border-gray-200 pb-8">
             <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 mb-6 leading-tight">{post.title}</h2>
             <div className="flex items-center gap-4 text-gray-500 text-sm">
               <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full font-bold">{currentMenu}</span>
@@ -75,7 +75,7 @@ const PostDetailPage: React.FC<PostDetailPageProps> = ({ type }) => {
             </div>
           )}
 
-          <div className="border-t border-gray-100 pt-12 mt-12 flex justify-center">
+          <div className="border-t border-gray-200 pt-12 mt-12 flex justify-center">
             <button 
               onClick={() => navigate(`/${basePath}`)}
               className="px-16 py-4 bg-zinc-900 text-white font-bold rounded-full hover:bg-zinc-800 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 active:translate-y-0"

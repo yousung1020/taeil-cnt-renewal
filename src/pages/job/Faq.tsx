@@ -56,9 +56,9 @@ export function Faq() {
 
   return (
     <div className="animate-fade-in-up">
-      <div className="mb-16 border-b border-gray-900 pb-6 flex items-end justify-between">
-        <h3 className="text-3xl font-bold text-gray-900 tracking-tight">채용FAQ</h3>
-        <span className="text-sm font-medium text-green-600 tracking-widest uppercase">FAQ</span>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">채용FAQ</h3>
+        <p className="text-gray-500 text-lg font-medium">채용에 관한 궁금한 점을 확인하실 수 있습니다.</p>
       </div>
 
       <div className="border-t border-gray-900">

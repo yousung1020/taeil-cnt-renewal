@@ -10,9 +10,9 @@ export function Notices() {
 
   return (
     <div className="animate-fade-in-up space-y-12">
-      <div className="mb-16 border-b border-gray-900 pb-6 flex items-end justify-between">
-        <h3 className="text-3xl font-bold text-gray-900 tracking-tight">채용공고</h3>
-        <span className="text-sm font-medium text-green-600 tracking-widest uppercase">Notices</span>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">채용공고</h3>
+        <p className="text-gray-500 text-lg font-medium">태일씨앤티의 새로운 동료를 모집합니다.</p>
       </div>
 
       <div className="bg-gray-50 border border-gray-200 p-6 flex items-center justify-center text-sm font-medium text-gray-800">
