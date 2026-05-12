@@ -1,17 +1,20 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import Footer from './Footer';
 
 interface SubLayoutProps {
   title: string;
-  menuItems: { name: string; desc: string; path?: string }[];
-  activePath: string;
-  children: React.ReactNode;
+  subtitle?: string;
+  menuItems?: { name: string; desc?: string; path?: string }[];
+  tabs?: { name: string; path: string }[];
+  activePath?: string;
+  children?: React.ReactNode;
 }
 
-export default function SubLayout({ title, menuItems, activePath, children }: SubLayoutProps) {
+export default function SubLayout({ title, subtitle, menuItems, tabs, activePath, children }: SubLayoutProps) {
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setShowTopBtn(window.scrollY > 400);
@@ -22,35 +25,64 @@ export default function SubLayout({ title, menuItems, activePath, children }: Su
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   const scrollToBottom = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
+  const items = menuItems || tabs || [];
+
   return (
     <div className="bg-white min-h-screen pt-20">
       {/* 서브 타이틀 섹션 (순수 배경색만 사용) */}
-      <section className="bg-zinc-900 h-[20vh] md:h-[25vh] flex items-center justify-center border-b border-white/10">
-        <div className="text-center">
+      <section className="bg-zinc-900 h-[20vh] md:h-[25vh] flex items-center justify-center border-b border-white/10 relative overflow-hidden">
+        <div className="text-center relative z-10">
+          {subtitle && <p className="text-xs md:text-sm font-semibold tracking-[0.2em] mb-3 text-green-400 uppercase">{title}</p>}
           <motion.h1 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-white text-4xl md:text-5xl font-extrabold tracking-tight"
           >
-            {title}
+            {subtitle || title}
           </motion.h1>
           <div className="mt-4 w-10 h-1 bg-green-500 mx-auto rounded-full" />
         </div>
       </section>
 
+      {/* 모바일 탭 네비게이션 (develop 스타일) - 탭이 있을 때만 렌더링 */}
+      {tabs && (
+        <div className="md:hidden bg-white border-b border-gray-200 sticky top-[72px] z-30">
+          <div className="px-4 sm:px-6">
+            <div className="flex overflow-x-auto no-scrollbar snap-x space-x-1">
+              {tabs.map((tab) => {
+                const isActive = location.pathname.startsWith(tab.path);
+                return (
+                  <Link 
+                    key={tab.name} 
+                    to={tab.path}
+                    className={`shrink-0 snap-center py-4 px-3 text-sm font-medium whitespace-nowrap transition-colors duration-200 border-b-2 ${
+                      isActive ? 'border-green-600 text-green-600' : 'border-transparent text-gray-500 hover:text-gray-800'
+                    }`}
+                  >
+                    {tab.name}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col md:flex-row gap-16 relative">
-        {/* 공통 좌측 네비게이션 (LNB) */}
-        <aside className="w-full md:w-64 shrink-0">
+        {/* 공통 좌측 네비게이션 (LNB) - HEAD 스타일의 사이드바 */}
+        <aside className={`${tabs ? 'hidden md:block' : 'w-full'} md:w-64 shrink-0`}>
           <div className="sticky top-32">
             <h2 className="text-xl font-black text-green-700 mb-8 border-l-4 border-green-700 pl-4 uppercase tracking-tighter">
               {title}
             </h2>
             <nav>
               <ul className="space-y-1">
-                {menuItems.map((item) => {
+                {items.map((item) => {
                   const itemPath = item.path || `#${item.name}`;
                   // URL의 전체 경로 혹은 해시 부분이 일치하는지 확인
-                  const isActive = activePath === itemPath || activePath === `#${item.name}`;
+                  const isActive = activePath 
+                    ? (activePath === itemPath || activePath === `#${item.name}`)
+                    : location.pathname.startsWith(itemPath);
                   
                   return (
                     <li key={item.name}>
@@ -69,8 +101,8 @@ export default function SubLayout({ title, menuItems, activePath, children }: Su
         </aside>
 
         {/* 동적 콘텐츠 영역 */}
-        <main className="flex-grow min-h-[50vh]">
-          {children}
+        <main className="flex-grow min-h-[50vh] min-w-0">
+          {children || <Outlet />}
         </main>
       </div>
 
