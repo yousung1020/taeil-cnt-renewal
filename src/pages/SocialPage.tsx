@@ -14,9 +14,9 @@ const SocialPage: React.FC = () => {
   return (
     <SubLayout title="PR CENTER" subtitle="홍보센터" menuItems={sideMenuItems} activePath="/social">
       <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-        <div className="border-b border-gray-100 pb-8 mb-12">
-          <h3 className="text-3xl font-bold text-zinc-900">사회공헌</h3>
-          <p className="text-gray-500 mt-2 text-lg">함께 나누는 따뜻한 세상을 만들어갑니다.</p>
+        <div className="mb-16 border-b border-gray-900 pb-6">
+          <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">사회공헌</h3>
+          <p className="text-gray-500 text-lg font-medium">함께 나누는 따뜻한 세상을 만들어갑니다.</p>
         </div>
         <PostList posts={socialData} basePath="social" title="사회공헌" />
       </motion.div>

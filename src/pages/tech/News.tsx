@@ -16,15 +16,9 @@ export function News() {
   return (
     <div className="animate-fade-in-up space-y-10">
       {/* Section Title */}
-      <div className="text-center">
-        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-          기술혁신 News
-        </h3>
-        <div className="flex justify-center gap-1">
-          <div className="w-1.5 h-6 bg-green-600 rounded-full"></div>
-          <div className="w-1.5 h-6 bg-green-500 rounded-full"></div>
-          <div className="w-1.5 h-6 bg-green-400 rounded-full"></div>
-        </div>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">기술혁신 News</h3>
+        <p className="text-gray-500 text-lg font-medium">태일씨앤티의 앞선 기술력과 혁신 소식을 전해드립니다.</p>
       </div>
 
       {/* Category Tabs */}

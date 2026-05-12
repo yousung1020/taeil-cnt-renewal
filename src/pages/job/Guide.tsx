@@ -8,9 +8,9 @@ export function Guide() {
   return (
     <div className="animate-fade-in-up space-y-32">
       {/* Title */}
-      <div className="mb-16 border-b border-gray-900 pb-6 flex items-end justify-between">
-        <h3 className="text-3xl font-bold text-gray-900 tracking-tight">채용가이드</h3>
-        <span className="text-sm font-medium text-green-600 tracking-widest uppercase">Recruitment Guide</span>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">채용가이드</h3>
+        <p className="text-gray-500 text-lg font-medium">태일씨앤티 채용 프로세스와 직무에 대해 안내해 드립니다.</p>
       </div>
 
       {/* 공개채용 */}
@@ -30,8 +30,8 @@ export function Guide() {
           ].map((item, idx, array) => (
             <div key={idx} className="flex-1 flex items-center w-full">
               <div 
-                className="bg-white rounded-xl py-10 px-4 w-full flex flex-col items-center justify-center transition-all duration-300 group
-                  border border-gray-100 shadow-[0_2px_10px_rgba(0,0,0,0.04)]
+                className="bg-white rounded-xl py-10 px-8 w-full flex flex-col items-start justify-center transition-all duration-300 group
+                  border border-gray-200 shadow-[0_2px_10px_rgba(0,0,0,0.04)]
                   hover:border-green-500 hover:shadow-[0_10px_30px_rgba(0,160,0,0.12)] hover:-translate-y-2"
               >
                  <div className="w-14 h-14 rounded-full bg-gray-50 group-hover:bg-green-100 flex items-center justify-center mb-5 transition-colors duration-300">
