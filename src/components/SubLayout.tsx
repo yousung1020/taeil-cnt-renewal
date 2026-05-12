@@ -68,7 +68,7 @@ export default function SubLayout({ title, subtitle, menuItems, tabs, activePath
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 flex flex-col md:flex-row gap-16 relative">
+      <div className="max-w-[1440px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col md:flex-row gap-16 relative">
         {/* 공통 좌측 네비게이션 (LNB) - HEAD 스타일의 사이드바 */}
         <aside className={`${tabs ? 'hidden md:block' : 'w-full'} md:w-64 shrink-0`}>
           <div className="sticky top-32">

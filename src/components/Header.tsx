@@ -39,10 +39,10 @@ export default function Header() {
     { 
       title: '기술혁신', 
       sub: [
-        { name: '기술혁신 비전', path: '/innovation/vision' },
-        { name: '기술혁신 News', path: '/innovation/news' }
+        { name: '기술혁신 비전', path: '/tech/vision' },
+        { name: '기술혁신 News', path: '/tech/news' }
       ], 
-      link: '/innovation/vision' 
+      link: '/tech/vision' 
     },
     { 
       title: '홍보센터', 
@@ -56,11 +56,13 @@ export default function Header() {
     { 
       title: '인재채용', 
       sub: [
-        { name: '인사제도', path: '/recruit/system' },
-        { name: '복리후생', path: '/recruit/benefits' },
-        { name: '채용가이드', path: '/recruit/guide' }
+        { name: '인사제도', path: '/job/system' },
+        { name: '복리후생', path: '/job/benefits' },
+        { name: '채용가이드', path: '/job/guide' },
+        { name: '채용공고', path: '/job/notices' },
+        { name: '채용FAQ', path: '/job/faq' }
       ], 
-      link: '/recruit/system' 
+      link: '/job/system' 
     },
     { 
       title: 'ESG경영', 

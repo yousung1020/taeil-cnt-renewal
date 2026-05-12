@@ -116,7 +116,7 @@ export default function ESG() {
   };
 
   return (
-    <SubLayout title="ESG 경영" menuItems={sideMenuItems} activePath={activeMenu.path}>
+    <SubLayout title="ESG" subtitle="ESG 경영" menuItems={sideMenuItems} activePath={activeMenu.path}>
       <motion.div
         key={activeMenu.name}
         initial={{ opacity: 0, x: 20 }}

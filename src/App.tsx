@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
 import SubLayout from './components/SubLayout';
 import Home from "./home/Home";
 
@@ -9,8 +8,6 @@ import SocialPage from './pages/SocialPage';
 import PostDetailPage from './pages/PostDetailPage';
 import About from './components/About';
 import Work from './components/Work';
-import Innovation from './components/Innovation';
-import Recruit from './components/Recruit';
 import ESG from './components/ESG';
 
 // Job Pages
@@ -47,14 +44,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about/:subpage?" element={<About />} />
             <Route path="/work/:subpage?" element={<Work />} />
-            <Route path="/innovation/:subpage?" element={<Innovation />} />
             
             <Route path="/news" element={<NewsPage />} />
             <Route path="/news/:id" element={<PostDetailPage type="news" />} />
             <Route path="/social" element={<SocialPage />} />
             <Route path="/social/:id" element={<PostDetailPage type="social" />} />
             
-            <Route path="/recruit/:subpage?" element={<Recruit />} />
             <Route path="/esg/:subpage?" element={<ESG />} />
 
             {/* Develop Branch Nested Pages using SubLayout compatible with Outlet */}

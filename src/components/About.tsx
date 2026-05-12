@@ -18,7 +18,7 @@ export default function About() {
   const activeMenu = sideMenuItems.find(item => item.key === subpage) || sideMenuItems[0];
 
   return (
-    <SubLayout title="회사소개" menuItems={sideMenuItems} activePath={activeMenu.path}>
+    <SubLayout title="ABOUT US" subtitle="회사소개" menuItems={sideMenuItems} activePath={activeMenu.path}>
       <motion.div
         key={activeMenu.name}
         initial={{ opacity: 0, x: 20 }}

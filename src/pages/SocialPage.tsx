@@ -12,7 +12,7 @@ const SocialPage: React.FC = () => {
   ];
 
   return (
-    <SubLayout title="홍보센터" menuItems={sideMenuItems} activePath="/social">
+    <SubLayout title="PR CENTER" subtitle="홍보센터" menuItems={sideMenuItems} activePath="/social">
       <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
         <div className="border-b border-gray-100 pb-8 mb-12">
           <h3 className="text-3xl font-bold text-zinc-900">사회공헌</h3>

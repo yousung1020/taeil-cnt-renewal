@@ -94,13 +94,15 @@ export function News() {
             <div className="divide-y divide-gray-200 border-b border-gray-200">
               {filteredNews.map((news) => (
                 <div key={news.id} className="flex flex-col md:grid md:grid-cols-[120px_1fr_140px] items-stretch hover:bg-gray-50/80 transition-all group cursor-pointer animate-fade-in">
-                  {/* Category & Title */}
-                  <div className="pt-6 pb-4 md:py-5 px-6 md:px-8 text-left md:border-r border-gray-200 flex flex-col md:flex-row md:items-center gap-3 md:gap-8">
-                    <div className="md:w-[120px] shrink-0 md:flex md:justify-center">
-                      <span className="text-[11px] font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 group-hover:bg-green-100/50 transition-colors inline-block">
-                        {news.category}
-                      </span>
-                    </div>
+                  {/* Category */}
+                  <div className="py-4 md:py-5 px-6 md:px-0 flex items-center justify-start md:justify-center md:border-r border-gray-200">
+                    <span className="text-[11px] font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 group-hover:bg-green-100/50 transition-colors inline-block">
+                      {news.category}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <div className="py-4 md:py-5 px-6 md:px-8 text-left md:border-r border-gray-200 flex items-center">
                     <h5 className="font-bold text-gray-800 text-[15px] group-hover:text-green-700 transition-colors leading-snug">
                       {news.title}
                     </h5>

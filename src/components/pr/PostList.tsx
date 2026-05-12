@@ -8,7 +8,7 @@ interface PostListProps {
   title: string;
 }
 
-const PostList: React.FC<PostListProps> = ({ posts, basePath, title }) => {
+const PostList: React.FC<PostListProps> = ({ posts, basePath }) => {
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
