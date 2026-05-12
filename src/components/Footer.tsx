@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
   const familySites = [
     { name: '테일 인트라넷', url: '#' },
@@ -11,15 +13,15 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
           {/* 기업 정보 영역 - 간격 최적화 */}
           <div className="space-y-3 flex-grow">
-            <img src="./images/태일-로고-removebg-preview.png" alt="태일씨앤티" className="h-6 brightness-75" />
+            <img src="/images/logo-footer.png" alt="태일씨앤티" className="h-10 md:h-12 brightness-90" />
             
             <div className="flex flex-wrap gap-x-6 gap-y-1 text-[13px] text-white/60 font-medium">
-              <a href="./#회사소개" className="hover:text-green-400 transition-colors">회사소개</a>
-              <a href="./#개인정보처리방침" className="hover:text-white transition-colors">개인정보처리방침</a>
-              <a href="./#이메일무단수집거부" className="hover:text-white transition-colors">이메일무단수집거부</a>
+              <Link to="/about/greetings" className="hover:text-green-400 transition-colors">회사소개</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
+              <Link to="/email-policy" className="hover:text-white transition-colors">이메일무단수집거부</Link>
             </div>
 
-            <div className="text-[12px] leading-snug font-light">
+            <div className="text-[12px] leading-snug font-normal">
               <p>(주)태일씨앤티 서울시 금천구 가산디지털2로 101( 가산동 549-1 ) 한라원앤원타워 B동 17층 1701호</p>
               <p className="mt-0.5">TEL 070-8897-0761 &nbsp; | &nbsp; FAX 02-2101-2141</p>
               <p className="mt-2 uppercase tracking-wider text-[11px] opacity-30">COPYRIGHT (c) BY TAEILCNT, ALL RIGHTS RESERVED.</p>

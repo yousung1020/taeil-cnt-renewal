@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 interface SubLayoutProps {
   title: string;
-  menuItems: { name: string; desc: string }[];
+  menuItems: { name: string; desc: string; path?: string }[];
   activePath: string;
   children: React.ReactNode;
 }
@@ -45,16 +47,22 @@ export default function SubLayout({ title, menuItems, activePath, children }: Su
             </h2>
             <nav>
               <ul className="space-y-1">
-                {menuItems.map((item) => (
-                  <li key={item.name}>
-                    <a 
-                      href={`#${item.name}`} 
-                      className={`block px-4 py-3 text-lg transition-all ${activePath === `#${item.name}` ? 'bg-green-700 text-white font-bold rounded shadow-md' : 'text-gray-400 hover:text-green-700 hover:pl-6'}`}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
+                {menuItems.map((item) => {
+                  const itemPath = item.path || `#${item.name}`;
+                  // URL의 전체 경로 혹은 해시 부분이 일치하는지 확인
+                  const isActive = activePath === itemPath || activePath === `#${item.name}`;
+                  
+                  return (
+                    <li key={item.name}>
+                      <Link 
+                        to={itemPath} 
+                        className={`block px-4 py-3 text-lg transition-all ${isActive ? 'bg-green-700 text-white font-bold rounded shadow-md' : 'text-gray-400 hover:text-green-700 hover:pl-6'}`}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
           </div>
@@ -85,6 +93,8 @@ export default function SubLayout({ title, menuItems, activePath, children }: Su
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
         </motion.button>
       </div>
+
+      <Footer />
     </div>
   );
 }
