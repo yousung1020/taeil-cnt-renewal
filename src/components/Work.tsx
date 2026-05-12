@@ -17,9 +17,9 @@ export default function Work() {
   return (
     <SubLayout title="BUSINESS" subtitle="사업실적" menuItems={sideMenuItems} activePath={activeMenu.path}>
       <motion.div key={activeMenu.name} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-        <div className="border-b border-gray-100 pb-8 mb-12">
-          <h3 className="text-3xl font-bold text-zinc-900">{activeMenu.name}</h3>
-          <p className="text-gray-500 mt-2 text-lg">{activeMenu.desc}</p>
+        <div className="mb-16 border-b border-gray-900 pb-6">
+          <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">{activeMenu.name}</h3>
+          <p className="text-gray-500 text-lg font-medium">{activeMenu.desc}</p>
         </div>
         <div className="flex items-center justify-center h-[40vh] border-2 border-dashed border-gray-100 rounded-3xl">
           <p className="text-gray-300 font-normal italic">{activeMenu.name} 상세 내용 준비 중</p>
