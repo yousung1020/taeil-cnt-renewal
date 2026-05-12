@@ -153,9 +153,14 @@ export function Section1() {
         className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#40776D] transition hover:text-[#55B76F]"
         onClick={(e) => {
           e.preventDefault();
-          document
-            .getElementById("section-2")
-            ?.scrollIntoView({ behavior: "smooth" });
+          const section2 = document.getElementById("section-2");
+
+          if (section2) {
+            window.scrollTo({
+              top: section2.getBoundingClientRect().top + window.scrollY - 80,
+              behavior: "smooth",
+            });
+          }
         }}
       >
         <span

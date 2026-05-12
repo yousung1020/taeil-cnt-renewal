@@ -63,12 +63,12 @@ export function Section2() {
 
       <div className="relative z-10 mx-auto w-full max-w-[1480px]">
         <div className="relative mb-10 text-center">
-          <p className="text-[clamp(2.25rem,5.5vw,4.25rem)] font-black uppercase leading-none tracking-tight text-[#40776D]">
-            주요 수주현황
-          </p>
-          <h2 className="mt-3 break-keep text-xl font-black text-[#55B76F] sm:text-2xl">
+          <h2 className="mb-3 break-keep text-base font-medium tracking-[0.28em] text-[#55B76F] sm:text-lg">
             ORDER STATUS
           </h2>
+          <p className="text-[clamp(2rem,5vw,3.75rem)] font-black uppercase leading-none tracking-tight text-[#40776D]">
+            주요 수주현황
+          </p>
 
           <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-3 md:flex">
             <button
@@ -90,16 +90,16 @@ export function Section2() {
           </div>
         </div>
 
-        <div className="relative h-[420px] overflow-visible sm:h-[500px] lg:h-[560px]">
+        <div className="relative h-[390px] overflow-visible sm:h-[460px] lg:h-[520px]">
           {projects.map((project, index) => (
             <button
               type="button"
               key={project.name}
-              className={`absolute top-0 overflow-hidden bg-neutral-200 text-left shadow-2xl shadow-black/10 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${getSlidePosition(index) === "center"
-                ? "left-1/2 z-30 h-[68%] w-[74%] -translate-x-1/2 rounded-tl-[48px] rounded-br-[48px] opacity-100 sm:w-[58%] lg:w-[48%]"
+              className={`absolute top-0 overflow-hidden bg-neutral-200 text-left shadow-2xl shadow-black/10 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${getSlidePosition(index) === "center"
+                ? "left-1/2 z-30 h-[66%] w-[72%] -translate-x-1/2 rounded-tl-[42px] rounded-br-[42px] opacity-100 sm:w-[56%] lg:w-[46%]"
                 : getSlidePosition(index) === "left"
-                  ? "left-0 z-10 h-[62%] w-[30%] -translate-x-1/3 translate-y-16 rounded-tr-[22px] rounded-br-[22px] opacity-55 grayscale sm:w-[26%] lg:w-[24%]"
-                  : "right-0 z-10 h-[62%] w-[30%] translate-x-1/3 translate-y-16 rounded-tl-[22px] rounded-bl-[22px] opacity-55 grayscale sm:w-[26%] lg:w-[24%]"
+                  ? "left-[4%] z-10 h-[60%] w-[30%] -translate-x-1/4 translate-y-14 rounded-tr-[20px] rounded-br-[20px] opacity-55 grayscale sm:w-[26%] lg:w-[24%]"
+                  : "right-[4%] z-10 h-[60%] w-[30%] translate-x-1/4 translate-y-14 rounded-tl-[20px] rounded-bl-[20px] opacity-55 grayscale sm:w-[26%] lg:w-[24%]"
                 }`}
               onClick={() => setActiveProject(index)}
               aria-label={`${project.name} 보기`}
@@ -112,8 +112,8 @@ export function Section2() {
             </button>
           ))}
 
-          <div className="absolute bottom-36 left-1/2 z-40 w-full max-w-xl -translate-x-1/2 text-center sm:bottom-32">
-            <h3 className="break-keep text-xl font-bold text-[#40776D] sm:text-2xl">
+          <div className="absolute bottom-34 left-1/2 z-40 w-full max-w-xl -translate-x-1/2 text-center sm:bottom-30">
+            <h3 className="break-keep text-lg font-bold text-[#40776D] sm:text-xl">
               {projects[activeProject].name}
             </h3>
           </div>

@@ -17,10 +17,9 @@ body {
     linear-gradient(
       to bottom,
       rgba(255, 255, 255, 1) 0,
-      rgba(255, 255, 255, 0.96) 96px,
-      rgba(246, 250, 247, 0.82) 220px,
-      rgba(246, 250, 247, 0.34) 420px,
-      rgba(246, 250, 247, 0) 620px
+      rgba(255, 255, 255, 0.88) 48px,
+      rgba(246, 250, 247, 0.42) 110px,
+      rgba(246, 250, 247, 0) 180px
     ),
     /* 큰 격자 (주요선) */
     linear-gradient(rgba(64, 119, 109, 0.08) 1px, transparent 1px),
@@ -28,7 +27,7 @@ body {
     /* 작은 격자 (보조선) */
     linear-gradient(rgba(64, 119, 109, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(64, 119, 109, 0.035) 1px, transparent 1px);
-  background-size: 100% 620px, 80px 80px, 80px 80px, 20px 20px, 20px 20px;
+  background-size: 100% 180px, 80px 80px, 80px 80px, 20px 20px, 20px 20px;
   background-repeat: no-repeat, repeat, repeat, repeat, repeat;
   position: relative;
 }
