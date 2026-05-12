@@ -116,7 +116,7 @@ export function Section1() {
             className="h-full w-full object-cover"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-[#40776D]/80" />
+          <div className="absolute inset-0 bg-[#1a2f2b]/85" />
 
           <div
             className={`absolute inset-0 flex items-center px-6 py-20 text-center transition-all duration-300 ease-out ${
@@ -126,7 +126,7 @@ export function Section1() {
             }`}
           >
             <div className="mx-auto flex min-h-[70vh] w-full max-w-7xl flex-col items-center justify-center">
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.3em] text-[#55B76F]">
+              <p className="mb-5 text-sm font-bold uppercase tracking-[0.3em] bg-gradient-to-r from-[#55B76F] via-[#7DE397] to-[#A3F3B5] bg-clip-text text-transparent">
                 {slide.eyebrow}
               </p>
               <h1 className="mx-auto max-w-5xl break-keep text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">

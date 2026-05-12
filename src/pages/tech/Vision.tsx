@@ -22,10 +22,10 @@ export function Vision() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/40"></div>
 
         <div className="relative z-10 px-6 md:px-16 py-20 md:py-28 text-center text-white max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl lg:text-2xl font-light leading-loose tracking-tight">
-            <span className="font-semibold">(주)태일씨앤티</span>는 미래지향적 기술 혁신을 통하여
+          <p className="text-lg md:text-xl lg:text-2xl font-normal leading-loose tracking-tight text-white/90">
+            <span className="font-bold text-white">(주)태일씨앤티</span>는 미래지향적 기술 혁신을 통하여
             <br className="hidden md:block"/>
-            기술경쟁력을 확보하여 산업현장의 <span className="font-semibold">새로운 방향</span>을 개척하는
+            기술경쟁력을 확보하여 산업현장의 <span className="font-bold text-white">새로운 방향</span>을 개척하는
             <br className="hidden md:block"/>
             개척자로 자리매김할 것입니다.
           </p>
@@ -61,7 +61,7 @@ export function Vision() {
                 <h5 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-4 drop-shadow-sm">
                   Challenge & Innovation
                 </h5>
-                <p className="text-green-50/70 font-medium tracking-[0.4em] uppercase text-xs md:text-sm">Strategic Future Excellence</p>
+                <p className="text-white/90 font-bold tracking-[0.4em] uppercase text-xs md:text-sm">Strategic Future Excellence</p>
               </div>
             </div>
 
@@ -122,7 +122,7 @@ export function Vision() {
                 <h5 className="text-lg md:text-xl font-bold text-gray-900 mb-3 leading-snug">
                   {item.title}
                 </h5>
-                <p className="text-gray-700 leading-relaxed text-[15px]">
+                <p className="text-gray-800 leading-relaxed text-[15px] font-medium">
                   {item.desc}
                 </p>
                 {idx < 2 && <div className="mt-10 md:mt-14 h-px bg-gray-100"></div>}

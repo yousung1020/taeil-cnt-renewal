@@ -16,9 +16,6 @@ function Home() {
         />
         <Section2 />
         <Section3 />
-        <div className="relative z-10 snap-start">
-          <Footer />
-        </div>
       </main>
     </div>
   );
