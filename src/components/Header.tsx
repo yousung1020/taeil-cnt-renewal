@@ -302,7 +302,7 @@ export default function Header() {
                       className="group flex items-center gap-3 py-2 text-white hover:text-green-400 transition-all w-full sm:w-auto justify-center sm:justify-end"
                     >
                       <span className="text-[20px] font-bold tracking-tight">
-                        지금 바로 지원하기
+                        지원하기
                       </span>
                       <svg
                         className="w-6 h-6 transform group-hover:translate-x-2 transition-transform"

@@ -94,7 +94,6 @@ function App() {
             </Route>
           </Routes>
         </main>
-        <Footer />
       </div>
     </Router>
   );
