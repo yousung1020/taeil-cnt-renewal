@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { newsData } from '../data/news';
@@ -12,6 +12,11 @@ interface PostDetailPageProps {
 const PostDetailPage: React.FC<PostDetailPageProps> = ({ type }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // 세부 게시글 진입 시 최상단으로 스크롤 (애니메이션 없이 즉시)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+  }, [id]);
   
   const data = type === 'news' ? newsData : socialData;
   const currentMenu = type === 'news' ? 'News' : '사회공헌';
