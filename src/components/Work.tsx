@@ -43,31 +43,60 @@ export default function Work() {
           <div className="space-y-10">
             <div className="flex flex-wrap gap-2 pb-2 border-b border-gray-100">
               {categories.map((cat) => (
-                <button key={cat} onClick={() => setActiveFilter(cat)} className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeFilter === cat ? 'bg-green-600 text-white shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}>{cat}</button>
+                <button 
+                  key={cat} 
+                  onClick={() => setActiveFilter(cat)} 
+                  className={`px-5 py-2.5 rounded-full text-sm font-bold transition-all ${activeFilter === cat ? 'bg-green-600 text-white shadow-lg shadow-green-100' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
+                >
+                  {cat}
+                </button>
               ))}
             </div>
+            
+            {/* 전환 애니메이션 제거하고 즉각적으로 렌더링되도록 수정 */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <AnimatePresence mode="popLayout">
-                {filteredProjects.map((project) => (
-                  <motion.div key={project.id} layout initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} transition={{ duration: 0.3 }} className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col">
-                    <div className="relative h-56 overflow-hidden">
-                      <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                      <div className="absolute top-4 left-4"><span className="px-3 py-1 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold rounded-full uppercase tracking-wider">{project.type}</span></div>
-                      <div className="absolute top-4 right-4"><span className={`px-3 py-1 rounded-full text-[11px] font-bold ${project.status === '진행' ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'}`}>{project.status}</span></div>
+              {filteredProjects.map((project) => (
+                <div 
+                  key={project.id} 
+                  className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                >
+                  <div className="relative h-56 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-white text-[11px] font-bold rounded-full uppercase tracking-wider">
+                        {project.type}
+                      </span>
                     </div>
-                    <div className="p-7 flex-grow flex flex-col">
-                      <h4 className="text-xl font-bold text-gray-900 mb-5 group-hover:text-green-600 transition-colors line-clamp-1">{project.title}</h4>
-                      <div className="space-y-3 flex-grow text-[13px]">
-                        <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">발주처</span><span className="text-gray-700 font-semibold">{project.client}</span></div>
-                        <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">시공사</span><span className="text-gray-700 font-semibold">{project.contractor}</span></div>
-                        <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">규모</span><span className="text-gray-600 leading-relaxed">{project.scale}</span></div>
-                        <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">공사기간</span><span className="text-gray-500 font-medium">{project.period}</span></div>
-                      </div>
+                    <div className="absolute top-4 right-4">
+                      <span className={`px-3 py-1 rounded-full text-[11px] font-bold ${project.status === '진행' ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'}`}>
+                        {project.status}
+                      </span>
                     </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                  </div>
+                  <div className="p-7 flex-grow flex flex-col">
+                    <h4 className="text-xl font-bold text-gray-900 mb-5 group-hover:text-green-600 transition-colors line-clamp-1">
+                      {project.title}
+                    </h4>
+                    <div className="space-y-3 flex-grow text-[13px]">
+                      <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">발주처</span><span className="text-gray-700 font-semibold">{project.client}</span></div>
+                      <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">시공사</span><span className="text-gray-700 font-semibold">{project.contractor}</span></div>
+                      <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">규모</span><span className="text-gray-600 leading-relaxed">{project.scale}</span></div>
+                      <div className="flex"><span className="w-20 text-gray-400 font-medium shrink-0">공사기간</span><span className="text-gray-500 font-medium">{project.period}</span></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
+            
+            {filteredProjects.length === 0 && (
+              <div className="py-20 text-center">
+                <p className="text-gray-400 text-lg">해당 카테고리의 공사 현황이 없습니다.</p>
+              </div>
+            )}
           </div>
         );
       case 'capability':
@@ -77,7 +106,7 @@ export default function Work() {
               <p className="text-stone-600 text-sm leading-relaxed text-center">태일씨앤티는 매년 철근콘크리트 공사업 분야에서 압도적인 시공능력평가액 상승을 기록하며 업계 선두권을 유지하고 있습니다.</p>
             </div>
             <div className="space-y-4">
-              {[{ year: '2024년 시공능력평가', data: [{ type: '철근·콘크리트', id: '92-서울-10-440', value: '66,974,298', national: '61 / 12,463' }, { type: '비계구조물', id: '관악-14-06-01', value: '9,850,873', national: '216 / 3,960' }, { type: '습식방수', id: '관악-14-03-01', value: '9,850,873', national: '249 / 2,956' }] }, { year: '2023년 시공능력평가', data: [{ type: '철근·콘크리트', id: '92-서울-10-440', value: '58,421,500', national: '65 / 12,200' }] }].map((yearSection, idx) => (
+              {[{ year: '2024년 시공능력평가', data: [{ type: '철근·콘크리트', id: '92-서울-10-440', value: '66,974,298', national: '61 / 12,463' }, { type: '비계구조물', id: '관악-14-06-01', value: '9,850,873', national: '216 / 3,960' }, { type: '습식방수', id: '관악-14-03-01', value: '9,850,873', national: '138 / 617' }] }, { year: '2023년 시공능력평가', data: [{ type: '철근·콘크리트', id: '92-서울-10-440', value: '58,421,500', national: '65 / 12,200' }] }].map((yearSection, idx) => (
                 <details key={idx} className="group border border-gray-200 rounded-2xl bg-white overflow-hidden" open={idx === 0}>
                   <summary className="flex items-center justify-between px-8 py-5 cursor-pointer list-none hover:bg-gray-50 transition-colors">
                     <div className="flex items-center gap-4">
