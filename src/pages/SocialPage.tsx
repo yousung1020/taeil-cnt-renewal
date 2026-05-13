@@ -8,7 +8,7 @@ const SocialPage: React.FC = () => {
   const sideMenuItems = [
     { name: 'News', desc: '태일씨앤티의 최신 소식을 알려드립니다.', path: '/news' },
     { name: '사회공헌', desc: '함께 나누는 따뜻한 세상을 만들어갑니다.', path: '/social' },
-    { name: '홍보자료', desc: '태일씨앤티의 다양한 홍보 자료를 확인하세요.', path: '/pr-material' },
+    { name: '유튜브', desc: '태일씨앤티의 다양한 영상을 확인하세요.', path: '/youtube' },
   ];
 
   return (

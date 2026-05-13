@@ -5,6 +5,7 @@ import Home from "./home/Home";
 
 import NewsPage from './pages/NewsPage';
 import SocialPage from './pages/SocialPage';
+import YoutubePage from './pages/YoutubePage';
 import PostDetailPage from './pages/PostDetailPage';
 import About from './components/About';
 import Work from './components/Work';
@@ -49,6 +50,7 @@ function App() {
             <Route path="/news/:id" element={<PostDetailPage type="news" />} />
             <Route path="/social" element={<SocialPage />} />
             <Route path="/social/:id" element={<PostDetailPage type="social" />} />
+            <Route path="/youtube" element={<YoutubePage />} />
             
             <Route path="/esg/:subpage?" element={<ESG />} />
 

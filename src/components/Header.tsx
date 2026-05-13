@@ -49,7 +49,7 @@ export default function Header() {
       sub: [
         { name: 'News', path: '/news' },
         { name: '사회공헌', path: '/social' },
-        { name: '홍보자료', path: '/pr-material' }
+        { name: '유튜브', path: '/youtube' }
       ], 
       link: '/news' 
     },
