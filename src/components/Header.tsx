@@ -14,9 +14,8 @@ export default function Header() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log(latest);
+    // console.log(latest); 
   });
-
   const menuItems = [
     {
       title: "회사소개",
