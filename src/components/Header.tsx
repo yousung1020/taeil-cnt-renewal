@@ -52,11 +52,11 @@ export default function Header() {
     {
       title: "홍보센터",
       sub: [
-        { name: 'News', path: '/news' },
-        { name: '사회공헌', path: '/social' },
-        { name: '유튜브', path: '/youtube' }
-      ], 
-      link: '/news' 
+        { name: "News", path: "/news" },
+        { name: "사회공헌", path: "/social" },
+        { name: "유튜브", path: "/youtube" },
+      ],
+      link: "/news",
     },
     {
       title: "인재채용",
@@ -102,7 +102,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-gray-800 z-[58]"
+            className="fixed inset-0 bg-black/40 z-[58]"
             onMouseEnter={() => setIsMegaMenuOpen(false)}
           />
         )}
