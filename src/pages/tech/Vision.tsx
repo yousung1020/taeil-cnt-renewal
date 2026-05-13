@@ -2,15 +2,9 @@ export function Vision() {
   return (
     <div className="animate-fade-in-up space-y-24 md:space-y-32">
       {/* Section Title */}
-      <div className="text-center">
-        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-4">
-          기술혁신 비전
-        </h3>
-        <div className="flex justify-center gap-1">
-          <div className="w-1.5 h-6 bg-green-600 rounded-full"></div>
-          <div className="w-1.5 h-6 bg-green-500 rounded-full"></div>
-          <div className="w-1.5 h-6 bg-green-400 rounded-full"></div>
-        </div>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">기술혁신 비전</h3>
+        <p className="text-gray-500 text-lg font-medium">미래를 여는 혁신 기술로 새로운 가치를 창출합니다.</p>
       </div>
 
       {/* Hero Statement — 도시 야경 배경 */}
@@ -34,11 +28,14 @@ export function Vision() {
 
       {/* VISION — Challenge Innovation */}
       <section>
-        <h4 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-10 tracking-tight">
-          VISION
-        </h4>
+        <div className="flex items-center gap-4 mb-10">
+          <div className="w-1.5 h-8 bg-green-600"></div>
+          <h4 className="text-2xl md:text-3xl font-bold text-gray-900 tracking-tight">
+            VISION
+          </h4>
+        </div>
 
-        <div className="max-w-4xl mx-auto relative px-4">
+        <div className="w-full relative">
           {/* Enhanced Background Glow */}
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-1/2 bg-green-100/40 rounded-full blur-[100px] -z-10"></div>
           
@@ -66,7 +63,7 @@ export function Vision() {
             </div>
 
             {/* Bottom: Strategy Grid with fixed dividers */}
-            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100 bg-white/50">
+            <div className="grid md:grid-cols-2 divide-y divide-x-0 md:divide-x divide-gray-200 bg-white/50 border-t border-gray-200">
               {[
                 { title: '기술경쟁력 확보', desc: '독자적인 신기술 개발 및 우수 특허 확보' },
                 { title: '품질 만족 · 고객 만족', desc: '철저한 공정 관리와 시공 품질 극대화' },
@@ -77,14 +74,14 @@ export function Vision() {
                   key={idx}
                   className="px-10 py-12 hover:bg-green-50/40 transition-all duration-300 group cursor-default"
                 >
-                  <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-4">
+                  <div className="flex flex-col items-center text-center gap-2">
+                    <div className="flex flex-col items-center gap-2">
                       <span className="text-green-700/40 font-black text-3xl leading-none tracking-tighter group-hover:text-green-600 transition-all duration-300">
                         0{idx + 1}
                       </span>
                       <h6 className="text-xl font-bold text-gray-900 group-hover:text-green-700 transition-colors">{item.title}</h6>
                     </div>
-                    <p className="text-gray-700 text-[15px] leading-relaxed font-medium pl-[52px]">{item.desc}</p>
+                    <p className="text-gray-700 text-[15px] leading-relaxed font-medium">{item.desc}</p>
                   </div>
                 </div>
               ))}
@@ -125,7 +122,7 @@ export function Vision() {
                 <p className="text-gray-800 leading-relaxed text-[15px] font-medium">
                   {item.desc}
                 </p>
-                {idx < 2 && <div className="mt-10 md:mt-14 h-px bg-gray-100"></div>}
+                {idx < 2 && <div className="mt-10 md:mt-14 h-px bg-gray-200"></div>}
               </div>
             </div>
           ))}

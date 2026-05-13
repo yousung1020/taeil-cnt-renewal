@@ -123,9 +123,9 @@ export default function ESG() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="border-b border-gray-100 pb-8 mb-12">
-          <h3 className="text-3xl font-bold text-zinc-900">{activeMenu.name}</h3>
-          <p className="text-gray-500 mt-2 text-lg">{activeMenu.desc}</p>
+        <div className="mb-16 border-b border-gray-900 pb-6">
+          <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">{activeMenu.name}</h3>
+          <p className="text-gray-500 text-lg font-medium">{activeMenu.desc}</p>
         </div>
         
         {renderContent()}

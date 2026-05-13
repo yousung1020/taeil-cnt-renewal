@@ -52,11 +52,11 @@ export default function Header() {
     {
       title: "홍보센터",
       sub: [
-        { name: "News", path: "/news" },
-        { name: "사회공헌", path: "/social" },
-        { name: "홍보자료", path: "/pr-material" },
-      ],
-      link: "/news",
+        { name: 'News', path: '/news' },
+        { name: '사회공헌', path: '/social' },
+        { name: '유튜브', path: '/youtube' }
+      ], 
+      link: '/news' 
     },
     {
       title: "인재채용",

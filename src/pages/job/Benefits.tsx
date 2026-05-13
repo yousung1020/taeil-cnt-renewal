@@ -13,9 +13,9 @@ export function Benefits() {
 
   return (
     <div className="animate-fade-in-up">
-      <div className="mb-16 border-b border-gray-900 pb-6 flex items-end justify-between">
-        <h3 className="text-3xl font-bold text-gray-900 tracking-tight">복리후생</h3>
-        <span className="text-sm font-medium text-green-600 tracking-widest uppercase">Welfare</span>
+      <div className="mb-16 border-b border-gray-900 pb-6">
+        <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">복리후생</h3>
+        <p className="text-gray-500 text-lg font-medium">직원들의 행복과 더 나은 삶을 지원하는 복지제도입니다.</p>
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-gray-200">
