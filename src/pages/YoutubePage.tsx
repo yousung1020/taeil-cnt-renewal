@@ -12,9 +12,9 @@ const YoutubePage: React.FC = () => {
   return (
     <SubLayout title="PR CENTER" subtitle="홍보센터" menuItems={sideMenuItems} activePath="/youtube">
       <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-        <div className="border-b border-gray-100 pb-8 mb-12">
-          <h3 className="text-3xl font-bold text-zinc-900">유튜브</h3>
-          <p className="text-gray-500 mt-2 text-lg">태일씨앤티의 다양한 영상을 확인하세요.</p>
+        <div className="mb-16 border-b border-gray-900 pb-6">
+          <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">유튜브</h3>
+          <p className="text-gray-500 text-lg font-medium">태일씨앤티의 다양한 영상을 확인하세요.</p>
         </div>
 
         <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl bg-black">

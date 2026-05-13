@@ -16,7 +16,7 @@ const SocialPage: React.FC = () => {
       <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
         <div className="mb-16 border-b border-gray-900 pb-6">
           <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">사회공헌</h3>
-          <p className="text-gray-500 text-lg font-medium">함께 나누는 따뜻한 세상을 만들어갑니다.</p>
+          <p className="text-gray-500 text-lg font-medium">태일씨앤티는 기업의 사회적 책임을 다하고, 나눔을 실천하고자 다양한 사회공헌 활동을 위해 노력하고 있습니다.</p>
         </div>
         <PostList posts={socialData} basePath="social" title="사회공헌" />
       </motion.div>

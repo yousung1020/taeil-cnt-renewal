@@ -206,10 +206,9 @@ export default function Work() {
   return (
     <SubLayout title="BUSINESS" subtitle="사업실적" menuItems={sideMenuItems} activePath={activeMenu.path}>
       <motion.div key={activeMenu.key} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <div className="border-b border-gray-100 pb-8 mb-12">
-          <div className="flex items-center gap-3 mb-2"><span className="w-8 h-[2px] bg-green-600" /><span className="text-sm font-bold text-green-600 tracking-widest uppercase">Performance</span></div>
-          <h3 className="text-4xl font-black text-zinc-900 tracking-tight">{activeMenu.name}</h3>
-          <p className="text-gray-500 mt-4 text-lg max-w-2xl">{activeMenu.desc}</p>
+        <div className="mb-16 border-b border-gray-900 pb-6">
+          <h3 className="text-3xl font-bold text-gray-900 tracking-tight mb-1.5">{activeMenu.name}</h3>
+          <p className="text-gray-500 text-lg font-medium">{activeMenu.desc}</p>
         </div>
         {renderContent()}
       </motion.div>
