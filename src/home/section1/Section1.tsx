@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import concretePourImg from "../../assets/home-concrete-01.jpg";
 import concreteCrewImg from "../../assets/home-concrete-02.jpg";
 import rebarFrameImg from "../../assets/home-concrete-03.jpg";
-import logoImg from "../../assets/logo.png.png";
 import { CoreValueGraphic } from "./components/CoreValueGraphic";
 import { SloganGraphic } from "./components/SloganGraphic";
 
@@ -11,17 +10,7 @@ type HeroSlide = {
   image: string;
   eyebrow: string;
   title: ReactNode;
-  visual:
-    | {
-        type: "image";
-        src: string;
-        alt: string;
-        className: string;
-      }
-    | {
-        type: "component";
-        node: ReactNode;
-      };
+  visual: { type: "component"; node: ReactNode } | { type: "none" };
 };
 
 const heroSlides: HeroSlide[] = [
@@ -35,12 +24,7 @@ const heroSlides: HeroSlide[] = [
         내일의 안전은 오늘로부터!
       </>
     ),
-    visual: {
-      type: "image",
-      src: logoImg,
-      alt: "태일씨앤티 로고",
-      className: "w-44 sm:w-56 lg:w-64",
-    },
+    visual: { type: "none" },
   },
   {
     image: concreteCrewImg,
@@ -100,7 +84,7 @@ export function Section1() {
   return (
     <section
       id="section-1"
-      className="relative min-h-screen snap-start overflow-hidden bg-neutral-950 text-white"
+      className="relative min-h-screen overflow-hidden bg-neutral-950 text-white"
     >
       {heroSlides.map((slide, index) => (
         <article
@@ -125,33 +109,39 @@ export function Section1() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="mx-auto flex min-h-[70vh] w-full max-w-7xl flex-col items-center justify-center">
-              <p className="mb-5 text-sm font-bold uppercase tracking-[0.3em] bg-gradient-to-r from-[#55B76F] via-[#7DE397] to-[#A3F3B5] bg-clip-text text-transparent">
+            <div className="mx-auto flex min-h-[64vh] w-full max-w-6xl flex-col items-center justify-center">
+              <p className="mb-4 bg-gradient-to-r from-[#55B76F] via-[#7DE397] to-[#A3F3B5] bg-clip-text text-xs font-bold uppercase tracking-[0.28em] text-transparent sm:text-sm">
                 {slide.eyebrow}
               </p>
-              <h1 className="mx-auto max-w-5xl break-keep text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
+              <h1 className="mx-auto max-w-4xl break-keep text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-5xl">
                 {slide.title}
               </h1>
-              <div className="mt-12 flex min-h-28 w-full items-center justify-center">
-                {slide.visual.type === "image" ? (
-                  <div className="rounded-2xl border border-white/25 bg-white/10 px-8 py-5 shadow-xl shadow-black/20 backdrop-blur">
-                    <img
-                      src={slide.visual.src}
-                      alt={slide.visual.alt}
-                      className={`${slide.visual.className} max-h-40 object-contain`}
-                    />
-                  </div>
-                ) : (
-                  slide.visual.node
-                )}
-              </div>
+              {slide.visual.type !== "none" && (
+                <div className="mt-9 flex min-h-24 w-full items-center justify-center">
+                  {slide.visual.node}
+                </div>
+              )}
             </div>
           </div>
         </article>
       ))}
 
+      {/* Section1 → Section2 transition gradient */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-20 z-[5] h-45"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(64,119,109,0) 0%, rgba(64,119,109,0.34) 48%, rgba(85,183,111,0.24) 100%)",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-21 bg-white"
+        aria-hidden="true"
+      />
+
       <button
-        className="absolute bottom-8 left-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 transition hover:text-white sm:left-10"
+        className="absolute bottom-8 left-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-[#40776D] transition hover:text-[#55B76F] sm:left-10"
         type="button"
         onClick={() => moveSlide("prev")}
       >
@@ -160,23 +150,30 @@ export function Section1() {
       </button>
 
       <a
-        className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 transition hover:text-white cursor-pointer"
+        className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 cursor-pointer flex-col items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#40776D] transition hover:text-[#55B76F]"
         onClick={(e) => {
           e.preventDefault();
-          document.getElementById('section-2')?.scrollIntoView({ behavior: 'smooth' });
+          const section2 = document.getElementById("section-2");
+
+          if (section2) {
+            window.scrollTo({
+              top: section2.getBoundingClientRect().top + window.scrollY - 80,
+              behavior: "smooth",
+            });
+          }
         }}
       >
         <span
-          className="relative h-8 w-5 rounded-full border border-white/70"
+          className="relative h-8 w-5 rounded-full border border-[#40776D]/70"
           aria-hidden="true"
         >
-          <span className="absolute left-1/2 top-2 h-1.5 w-1 -translate-x-1/2 rounded-full bg-white" />
+          <span className="absolute left-1/2 top-2 h-1.5 w-1 -translate-x-1/2 rounded-full bg-[#40776D]" />
         </span>
         Scroll Down
       </a>
 
       <button
-        className="absolute bottom-8 right-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 transition hover:text-white sm:right-10"
+        className="absolute bottom-8 right-6 z-20 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em] text-[#40776D] transition hover:text-[#55B76F] sm:right-10"
         type="button"
         onClick={() => moveSlide("next")}
       >
